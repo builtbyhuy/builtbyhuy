@@ -41,6 +41,15 @@ A responsive release-review interface backed by a deterministic acceptance evalu
 
 Independent sample with fictional release data—not a client deployment or measured result.
 
+### Upstream maintainer acceptance
+
+[python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131)
+fixed quote-safe style lookups by binding XPath variables across explicit and
+latent-style paths. The repository owner independently tested mixed quotes,
+injection-like input, save/load round trips, namespaces, and variable
+composition, then merged it after calling it
+[“exactly the fix”](https://github.com/toxicphreAK/python-docx-ng/pull/131#issuecomment-5180241589).
+
 ## What I can own
 
 - **Workflow reliability:** Python, webhooks, n8n, Make, validation,
