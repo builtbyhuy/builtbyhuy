@@ -29,7 +29,7 @@ A runnable Python reliability sample with a
 [deployed HMAC-protected ingress](https://webhook-crm-reliability-sample.vercel.app/api),
 bounded inputs, payload-free structured logs, durable local SQLite evidence,
 duplicate and conflict handling, bounded retries, safe replay, recursive
-redaction, CI across Python 3.11 and 3.13, and **34 contract tests**.
+redaction, CI across Python 3.11 and 3.13, and **42 contract tests**.
 
 Independent sample with fictional inputs and a simulated CRM—not client work or
 a production outcome. The deployed ledger is scoped to one request; durable
