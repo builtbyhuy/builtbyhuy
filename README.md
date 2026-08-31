@@ -1,62 +1,53 @@
-# Hồ Khắc Huy
+# Hi, I'm Huy.
 
-## Full-Stack Software Engineer
+I build Python and JavaScript tools for the parts that fail quietly: webhooks,
+plugin discovery, and release handoffs.
 
-I help small automation, RevOps, and AI implementation agencies pressure-test
-one client workflow before handoff—especially where duplicates, silent failures,
-retries, or unclear recovery can turn a working demo into an operational failure.
+My favorite demo is the one that breaks on purpose.
 
-Based in Hanoi, Vietnam. Available for focused freelance milestones.
+## Start here
 
-## Start with one workflow
+### [Webhook reliability boundary](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
 
-**48-Hour Workflow Handoff Check — USD 249.** For one n8n, Make, webhook,
-or API path due for client handoff within 14 days, I return a failure-risk map,
-one contained fix when safe, success- and failure-path evidence, and rollback
-notes. Scope is agreed and funded before work starts; no production credentials
-or unnecessary client data are accepted.
+A signed-webhook simulation with SQLite-backed duplicate/conflict detection and
+bounded retries. Event identity survives restarts; exhausted retries require
+explicit recovery instead of quietly trying again.
 
-**[Send one sanitized workflow path for a handoff check](mailto:hohuyblon@gmail.com?subject=48-Hour%20Workflow%20Handoff%20Check&body=Systems%20involved%3A%0AHandoff%20date%3A%0AFailure%20to%20prevent%3A)**
+**Python · SQLite · HMAC · unittest** — independent sample; synthetic events,
+simulated CRM, no customer traffic.
 
-[LinkedIn profile](https://www.linkedin.com/in/builtbyhuy/) for identity and work
-history.
+### [Codex Plugin Check](https://github.com/builtbyhuy/codex-plugin-check)
 
-## Selected engineering evidence
+A zero-dependency CLI and GitHub Action that verifies skills and hooks against
+a pinned Codex release. Declared capabilities and observed discovery stay
+separate; installation alone is not proof that a plugin works.
 
-### [Webhook-to-CRM Reliability Boundary](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
+**JavaScript · Node.js · GitHub Actions · Docker** — experimental; strict
+isolation is Linux-only, and discovery is not a security certification.
 
-A runnable Python reliability sample with a
-[deployed HMAC-protected ingress](https://webhook-crm-reliability-sample.vercel.app/api),
-bounded inputs, payload-free structured logs, durable local SQLite evidence,
-duplicate and conflict handling, bounded retries, safe replay, recursive
-redaction, CI across Python 3.11 and 3.13, and **42 contract tests**.
+### [Proofline](https://github.com/builtbyhuy/proofline-release-review) · [try the interface](https://builtbyhuy.github.io/proofline-release-review/)
 
-Independent sample with fictional inputs and a simulated CRM—not client work or
-a production outcome. The deployed ledger is scoped to one request; durable
-cross-request idempotency is not claimed.
+A release-review interface with an executable acceptance model. Missing
+evidence keeps the fictional release blocked; unit and browser tests cover the
+decision rules, state transitions, and keyboard-focus recovery.
 
-### [Proofline Release Review](https://github.com/builtbyhuy/proofline-release-review)
+**HTML/CSS · JavaScript · Playwright** — independent frontend sample, not a
+deployment controller.
 
-A responsive release-review interface backed by a deterministic acceptance evaluator, explicit blocked-state logic, source-contract checks, unit tests, browser tests, accessibility behavior, CI, and a [live demo](https://builtbyhuy.github.io/proofline-release-review/).
+## Reviewed outside my own repos
 
-Independent sample with fictional release data—not a client deployment or measured result.
+In [python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131),
+I fixed quote-sensitive style lookups by binding XPath variables and adding
+regression coverage. The maintainer reviewed the edge cases and merged it.
+One open-source contribution, not a client case study.
 
-### Upstream maintainer acceptance
+## On my bench
 
-[python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131)
-fixed quote-safe style lookups by binding XPath variables across explicit and
-latent-style paths. The repository owner independently tested mixed quotes,
-injection-like input, save/load round trips, namespaces, and variable
-composition, then merged it after calling it
-[“exactly the fix”](https://github.com/toxicphreAK/python-docx-ng/pull/131#issuecomment-5180241589).
+I'm extending the webhook sample into **HandoffLab**: a failure-replay matrix
+that checks downstream side effects and records the operator's recovery
+decision. The local prototype is tested; it is not released yet.
 
-## What I can own
+## Say hello
 
-- **Workflow reliability:** Python, webhooks, n8n, Make, validation,
-  idempotency, bounded retries, recovery evidence, and safe handoff.
-- **Full-stack delivery around a defined acceptance contract:** Next.js and
-  React interfaces, application logic, data flows, tests, and release checks.
-
-## Broader build context
-
-My hands-on software and automation work began in August 2023. It includes an independent Next.js and TypeScript sales-practice product, a workforce-attendance application for a VinFast operation, Odoo and spreadsheet reporting workflows for MAST, and human-reviewed outbound automation. Private projects are named only for context; I do not claim employer relationships, deployment scale, or business outcomes that I cannot publicly prove.
+For a focused software project or open-source collaboration:
+[email me](mailto:hohuyblon@gmail.com) or [find me on LinkedIn](https://www.linkedin.com/in/builtbyhuy/).
