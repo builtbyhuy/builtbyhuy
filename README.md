@@ -34,6 +34,12 @@ decision rules, state transitions, and keyboard-focus recovery.
 **HTML/CSS · JavaScript · Playwright** — independent frontend sample, not a
 deployment controller.
 
+## Field notes
+
+[When a saved document style cannot be read back](notes/2026-09-06-xpath-variables.md)
+— a walkthrough of a merged Python fix, XPath variable binding, and the public
+round-trip test that kept the repair honest. Includes a runnable reproduction.
+
 ## Reviewed outside my own repos
 
 In [python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131),
