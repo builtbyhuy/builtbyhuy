@@ -1,0 +1,121 @@
+{
+  "observed_at": "2026-09-09T17:22:20.568839+00:00",
+  "python": "3.12.13",
+  "mcp_agent": "0.2.6",
+  "mcp": "1.30.0",
+  "checks_passed": [
+    "valid input",
+    "negative quantity",
+    "missing SKU",
+    "missing column",
+    "extra column",
+    "header only",
+    "malformed header quotes",
+    "malformed row quotes",
+    "row limit",
+    "size limit",
+    "async lifecycle: valid input",
+    "async lifecycle: negative quantity",
+    "worker failure despite successful MCP status call",
+    "bounded client deadline",
+    "same run can complete after client deadline"
+  ],
+  "observations": {
+    "valid input": {
+      "handle": {
+        "workflow_id": "validate_later",
+        "run_id": "1ba7f970-4e21-4777-b716-9acee282406a",
+        "execution_id": "1ba7f970-4e21-4777-b716-9acee282406a"
+      },
+      "terminal": {
+        "id": "1ba7f970-4e21-4777-b716-9acee282406a",
+        "workflow_id": "validate_later",
+        "run_id": "1ba7f970-4e21-4777-b716-9acee282406a",
+        "name": "validate_later",
+        "status": "completed",
+        "running": false,
+        "state": {
+          "status": "completed",
+          "metadata": {},
+          "updated_at": 1788974539.634456,
+          "error": null
+        },
+        "result": {
+          "kind": "workflow_result",
+          "value": {
+            "accepted": true,
+            "rows": 1,
+            "errors": []
+          },
+          "metadata": {},
+          "start_time": null,
+          "end_time": null
+        },
+        "completed": true,
+        "error": null
+      }
+    },
+    "negative quantity": {
+      "handle": {
+        "workflow_id": "validate_later",
+        "run_id": "5757a3fa-8760-482e-8691-8bdf45791b9c",
+        "execution_id": "5757a3fa-8760-482e-8691-8bdf45791b9c"
+      },
+      "terminal": {
+        "id": "5757a3fa-8760-482e-8691-8bdf45791b9c",
+        "workflow_id": "validate_later",
+        "run_id": "5757a3fa-8760-482e-8691-8bdf45791b9c",
+        "name": "validate_later",
+        "status": "completed",
+        "running": false,
+        "state": {
+          "status": "completed",
+          "metadata": {},
+          "updated_at": 1788974539.862468,
+          "error": null
+        },
+        "result": {
+          "kind": "workflow_result",
+          "value": {
+            "accepted": false,
+            "rows": 1,
+            "errors": [
+              "Row 1: quantity must be a nonnegative integer"
+            ]
+          },
+          "metadata": {},
+          "start_time": null,
+          "end_time": null
+        },
+        "completed": true,
+        "error": null
+      }
+    },
+    "worker failure": {
+      "mcp_is_error": false,
+      "terminal": {
+        "id": "11ff6aa1-0776-41cc-975d-54ce8268a55a",
+        "workflow_id": "validate_later",
+        "run_id": "11ff6aa1-0776-41cc-975d-54ce8268a55a",
+        "name": "validate_later",
+        "status": "error",
+        "running": false,
+        "state": {
+          "status": "error",
+          "metadata": {},
+          "updated_at": 1788974540.093523,
+          "error": {
+            "type": "RuntimeError",
+            "message": "Simulated worker failure; no inventory was changed",
+            "timestamp": 1788974540.093528
+          }
+        },
+        "result": null,
+        "completed": false,
+        "error": "Simulated worker failure; no inventory was changed",
+        "exception_type": "RuntimeError"
+      }
+    }
+  },
+  "limits": "Local asyncio/stdio sample with fictional CSV; no LLM, cloud durability, production integration or paid-client validation."
+}

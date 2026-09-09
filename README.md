@@ -40,6 +40,10 @@ deployment controller.
 — a walkthrough of a merged Python fix, XPath variable binding, and the public
 round-trip test that kept the repair honest. Includes a runnable reproduction.
 
+[An async tool started. Did it finish?](samples/mcp-workflow-status/)
+— a runnable MCP workflow example covering completion, rejected input, worker
+failure, and a client deadline. Real local protocol calls; fictional CSV data.
+
 ## Reviewed outside my own repos
 
 In [python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131),
