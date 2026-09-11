@@ -7,6 +7,7 @@ and clear handover. My preferred stack is **TypeScript, React/Next.js and Python
 with SQL, webhooks, n8n, Make and Airtable.
 
 Hanoi, Vietnam (UTC+7) · 10–20 hours/week for remote project work
+
 [Discuss a project](mailto:hohuyblon@gmail.com) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/)
 
 ## Work you can inspect
