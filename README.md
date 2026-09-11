@@ -1,63 +1,107 @@
 # Hi, I'm Huy.
 
-I build Python and JavaScript tools for the parts that fail quietly: webhooks,
-plugin discovery, and release handoffs.
+**I build web features, connect APIs and fix Python workflows.**
 
-My favorite demo is the one that breaks on purpose.
+I can take a defined feature or defect from reproduction to a tested implementation
+and clear handover. My preferred stack is **TypeScript, React/Next.js and Python**,
+with SQL, webhooks, n8n, Make and Airtable.
 
-## Start here
+Hanoi, Vietnam (UTC+7) · 10–20 hours/week for remote project work
+[Discuss a project](mailto:hohuyblon@gmail.com) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/)
 
-### [Webhook reliability boundary](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
+## Work you can inspect
 
-A signed-webhook simulation with SQLite-backed duplicate/conflict detection and
-bounded retries. Event identity survives restarts; exhausted retries require
-explicit recovery instead of quietly trying again.
+### 1. A Python bug fix accepted by an upstream maintainer
 
-**Python · SQLite · HMAC · unittest** — independent sample; synthetic events,
-simulated CRM, no customer traffic.
+**Problem:** a document style containing quotes could be created but could not
+be looked up correctly.
 
-### [Codex Plugin Check](https://github.com/builtbyhuy/codex-plugin-check)
+**My contribution:** changed the affected XPath lookups to use bound variables,
+passed them through the XML wrapper, and added regression coverage for quoted
+names and injection-like input. The maintainer reviewed the edge cases and
+merged the change.
 
-A zero-dependency CLI and GitHub Action that verifies skills and hooks against
-a pinned Codex release. Declared capabilities and observed discovery stay
-separate; installation alone is not proof that a plugin works.
+[Review merged PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131) ·
+[Read the reproduction and fix](notes/2026-09-06-xpath-variables.md)
 
-**JavaScript · Node.js · GitHub Actions · Docker** — experimental; strict
-isolation is Linux-only, and discovery is not a security certification.
+**Relevant work:** Python debugging, document processing and regression tests.
+*Open-source contribution.*
 
-### [Proofline](https://github.com/builtbyhuy/proofline-release-review) · [try the interface](https://builtbyhuy.github.io/proofline-release-review/)
+### 2. Proofline — a web interface with a working recovery flow
 
-A release-review interface with an executable acceptance model. Missing
-evidence keeps the fictional release blocked; unit and browser tests cover the
-decision rules, state transitions, and keyboard-focus recovery.
+**Problem modeled:** a reviewer needs to see which requirements have evidence
+and which still block a release.
 
-**HTML/CSS · JavaScript · Playwright** — independent frontend sample, not a
-deployment controller.
+**My contribution:** built the HTML/CSS/JavaScript interface, the acceptance
+evaluator and its tests. The UI includes ready, loading, empty and error states.
+A keyboard-focus fix keeps Retry from leaving focus on a hidden control.
 
-## Field notes
+**Try it:** [open the live interface](https://builtbyhuy.github.io/proofline-release-review/),
+select **Error**, then **Retry**. Inspect the loading state and continue navigating
+with the keyboard.
 
-[When a saved document style cannot be read back](notes/2026-09-06-xpath-variables.md)
-— a walkthrough of a merged Python fix, XPath variable binding, and the public
-round-trip test that kept the repair honest. Includes a runnable reproduction.
+[Source and verification](https://github.com/builtbyhuy/proofline-release-review)
 
-[An async tool started. Did it finish?](samples/mcp-workflow-status/)
-— a runnable MCP workflow example covering completion, rejected input, worker
-failure, and a client deadline. Real local protocol calls; fictional CSV data.
+**Relevant work:** frontend features, internal tools and accessible error recovery.
+*Independent technical sample with fictional release data; no backend or live deployment control.*
 
-## Reviewed outside my own repos
+### 3. Webhook-to-CRM — duplicates, failures and retries made visible
 
-In [python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131),
-I fixed quote-sensitive style lookups by binding XPath variables and adding
-regression coverage. The maintainer reviewed the edge cases and merged it.
-One open-source contribution, not a client case study.
+**Problem modeled:** a repeated event or temporary API failure should not silently
+create conflicting records or trigger unlimited retries.
 
-## On my bench
+**My contribution:** built the Python/SQLite processing boundary, signature
+validation, duplicate/conflict checks, bounded retries and regression tests.
+The local CLI preserves event identity across restarts and requires explicit
+recovery after exhausted retries.
 
-I'm extending the webhook sample into **HandoffLab**: a failure-replay matrix
-that checks downstream side effects and records the operator's recovery
-decision. The local prototype is tested; it is not released yet.
+**Inspect it:** [follow the runnable scenarios](https://github.com/builtbyhuy/webhook-crm-reliability-sample#quick-start)
+to compare a successful event, a duplicate and an exhausted retry.
 
-## Say hello
+**Relevant work:** API integrations, automation debugging and data validation.
+*Independent sample with synthetic events and a simulated CRM. The preview API's
+ledger is scoped to one request; it does not provide cross-request durability.*
 
-For a focused software project or open-source collaboration:
-[email me](mailto:hohuyblon@gmail.com) or [find me on LinkedIn](https://www.linkedin.com/in/builtbyhuy/).
+## Other engineering work
+
+- **SkillArena — independent product.** Built a Next.js, React and TypeScript
+  sales-practice application with scenario simulation, transcript-backed
+  debriefs, drills and rematches. Private implementation.
+- **Workforce attendance — private business project.** Built an attendance
+  application for a Vietnamese automotive operation.
+- **Management reporting — private business work.** Built repeatable reporting
+  from Odoo and spreadsheet data, with source tracking, validation and
+  Excel/HTML/PDF outputs.
+
+These descriptions identify my work; private project details and business
+results are not presented as public case studies. My independent software and
+automation work began in August 2023.
+
+## A practical first assignment
+
+A first milestone can be **one web feature, one failing API path or one reporting
+workflow**. Once we agree the brief, I return the implementation, the checks used
+to verify it, and handover notes covering remaining limits and recovery.
+
+Send the current behavior, the result you need and the relevant stack.
+I'll identify the missing inputs and propose a scope, acceptance checks, price
+and delivery schedule for your review.
+
+I use Codex-assisted implementation, testing and writing. We agree tooling and
+data requirements before sharing private project material. Working hours and
+the implementation start date are agreed for each engagement.
+
+[Email Huy](mailto:hohuyblon@gmail.com)
+
+## More technical work
+
+- [MCP workflow status](samples/mcp-workflow-status/) — distinguish dispatch,
+  completion, rejected input and worker failure in a runnable local example.
+  Fictional CSV data.
+- [Codex Plugin Check](https://github.com/builtbyhuy/codex-plugin-check) —
+  experimental CLI and GitHub Action for skills/hooks discovery against a pinned
+  Codex release. Strict isolation is Linux-only; discovery is not a security certification.
+- **HandoffLab** — a local, unreleased failure-replay prototype extending the
+  webhook sample.
+- [Editable workshop presentation](samples/workshop-presentation/) —
+  an independent presentation concept using fictional data.
