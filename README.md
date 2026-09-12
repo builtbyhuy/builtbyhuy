@@ -64,6 +64,20 @@ to compare a successful event, a duplicate and an exhausted retry.
 *Independent sample with synthetic events and a simulated CRM. The preview API's
 ledger is scoped to one request; it does not provide cross-request durability.*
 
+### 4. A contractor website with a local request preview
+
+**Problem modeled:** a homeowner needs to choose a service and explain the work without a long form.
+
+[Try the page](https://builtbyhuy.github.io/contractor-site-sample/): choose a service,
+preview a request using fictional details, then edit it. The responsive page includes
+inline error messages, keyboard focus and an original house illustration.
+
+[Source and sample boundaries](https://github.com/builtbyhuy/contractor-site-sample)
+
+**Relevant work:** service landing pages and accessible frontend forms.
+*Independent, Codex-assisted sample for a fictional company. No message is sent,
+no request is booked, and no customer or conversion result is claimed.*
+
 ## Other engineering work
 
 - **SkillArena — independent product.** Built a Next.js, React and TypeScript
