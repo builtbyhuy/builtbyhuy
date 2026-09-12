@@ -1,0 +1,96 @@
+{
+  "case": "06-explicit-replay",
+  "exit_code": 0,
+  "output": {
+    "audit": [
+      {
+        "action": "authentication_verified",
+        "details": {
+          "algorithm": "hmac-sha256",
+          "signature": "[REDACTED]",
+          "verified": true
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 9
+      },
+      {
+        "action": "replay_authorized",
+        "details": {
+          "replay_number": 1
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 10
+      },
+      {
+        "action": "crm_attempt",
+        "details": {
+          "attempt": 1,
+          "classification": "success",
+          "code": "dry_run_write",
+          "status": "succeeded"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 11
+      },
+      {
+        "action": "event_succeeded",
+        "details": {},
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 12
+      }
+    ],
+    "authentication": {
+      "algorithm": "hmac-sha256",
+      "signature": "[REDACTED]",
+      "verified": true
+    },
+    "ledger": {
+      "backend": "sqlite",
+      "durable": true
+    },
+    "mode": "dry-run",
+    "retry_policy": {
+      "base_backoff_seconds": 1,
+      "delay_mode": "record_only",
+      "max_attempts": 3,
+      "max_backoff_seconds": 8,
+      "max_retry_after_seconds": 30
+    },
+    "runs": [
+      {
+        "attempts": [
+          {
+            "attempt": 1,
+            "classification": "success",
+            "code": "dry_run_write",
+            "status": "succeeded"
+          }
+        ],
+        "crm_payload": {
+          "company": "Analytical Engines",
+          "email": "buyer@example.com",
+          "external_event_id": "evt_demo_001",
+          "full_name": "Ada Lovelace",
+          "source_event_type": "contact.upserted"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "outcome": "would_write",
+        "payload_fingerprint": "1b339c69a25198ae5b0eb2ff5b22d372b17876a75674abd62c642266221263ab",
+        "replay": {
+          "authorized": true,
+          "number": 1,
+          "prior_outcome": "retry_exhausted"
+        }
+      }
+    ],
+    "safety": {
+      "network_calls": 0,
+      "retry_delays_executed": 0,
+      "secrets_rendered": false
+    },
+    "schema_version": "2.0",
+    "source": "webhook"
+  },
+  "process": "separate CLI process",
+  "stderr": ""
+}

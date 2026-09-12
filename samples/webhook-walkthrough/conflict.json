@@ -1,0 +1,10 @@
+{
+  "event_id": "evt_demo_001",
+  "event_type": "contact.upserted",
+  "occurred_at": "2026-07-17T09:15:00+07:00",
+  "contact": {
+    "email": "buyer@example.com",
+    "full_name": "Ada Lovelace",
+    "company": "Different Fictional Company"
+  }
+}

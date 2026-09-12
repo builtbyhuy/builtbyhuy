@@ -56,7 +56,8 @@ validation, duplicate/conflict checks, bounded retries and regression tests.
 The local CLI preserves event identity across restarts and requires explicit
 recovery after exhausted retries.
 
-**Inspect it:** [follow the runnable scenarios](https://github.com/builtbyhuy/webhook-crm-reliability-sample#quick-start)
+**Inspect it:** [read the one-page walkthrough and seven recorded runs](samples/webhook-walkthrough/),
+or [follow the runnable scenarios](https://github.com/builtbyhuy/webhook-crm-reliability-sample#quick-start)
 to compare a successful event, a duplicate and an exhausted retry.
 
 **Relevant work:** API integrations, automation debugging and data validation.

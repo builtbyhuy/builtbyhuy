@@ -1,0 +1,80 @@
+{
+  "source_commit": "ff1672b466c3d3be48ab02d3a92b6b234c005739",
+  "runs": [
+    {
+      "case": "01-first-delivery",
+      "exit_code": 0,
+      "outcomes": [
+        [
+          "would_write",
+          1
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "02-exact-redelivery",
+      "exit_code": 0,
+      "outcomes": [
+        [
+          "duplicate_suppressed",
+          0
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "03-same-id-changed-data",
+      "exit_code": 1,
+      "outcomes": [
+        [
+          "idempotency_conflict",
+          0
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "04-retry-exhausted",
+      "exit_code": 1,
+      "outcomes": [
+        [
+          "retry_exhausted",
+          3
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "05-restart-without-replay",
+      "exit_code": 1,
+      "outcomes": [
+        [
+          "retry_exhausted",
+          0
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "06-explicit-replay",
+      "exit_code": 0,
+      "outcomes": [
+        [
+          "would_write",
+          1
+        ]
+      ],
+      "error": null
+    },
+    {
+      "case": "07-invalid-signature",
+      "exit_code": 2,
+      "outcomes": [],
+      "error": {
+        "code": "invalid_signature"
+      }
+    }
+  ],
+  "limits": "Synthetic contact; simulated CRM; no outbound network; retry delays recorded but not slept."
+}

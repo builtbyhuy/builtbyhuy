@@ -1,0 +1,71 @@
+{
+  "case": "03-same-id-changed-data",
+  "exit_code": 1,
+  "output": {
+    "audit": [
+      {
+        "action": "authentication_verified",
+        "details": {
+          "algorithm": "hmac-sha256",
+          "signature": "[REDACTED]",
+          "verified": true
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 7
+      },
+      {
+        "action": "idempotency_conflict",
+        "details": {
+          "incoming_payload_fingerprint": "bb4713f4802e373d25a9d11580eaeb61685372ffd9df95508333bc81ff8a0ac3"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 8
+      }
+    ],
+    "authentication": {
+      "algorithm": "hmac-sha256",
+      "signature": "[REDACTED]",
+      "verified": true
+    },
+    "ledger": {
+      "backend": "sqlite",
+      "durable": true
+    },
+    "mode": "dry-run",
+    "retry_policy": {
+      "base_backoff_seconds": 1,
+      "delay_mode": "record_only",
+      "max_attempts": 3,
+      "max_backoff_seconds": 8,
+      "max_retry_after_seconds": 30
+    },
+    "runs": [
+      {
+        "attempts": [],
+        "crm_payload": {
+          "company": "Different Fictional Company",
+          "email": "buyer@example.com",
+          "external_event_id": "evt_demo_001",
+          "full_name": "Ada Lovelace",
+          "source_event_type": "contact.upserted"
+        },
+        "failure": {
+          "classification": "non_retryable",
+          "code": "idempotency_payload_mismatch"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "outcome": "idempotency_conflict",
+        "payload_fingerprint": "bb4713f4802e373d25a9d11580eaeb61685372ffd9df95508333bc81ff8a0ac3"
+      }
+    ],
+    "safety": {
+      "network_calls": 0,
+      "retry_delays_executed": 0,
+      "secrets_rendered": false
+    },
+    "schema_version": "2.0",
+    "source": "webhook"
+  },
+  "process": "separate CLI process",
+  "stderr": ""
+}

@@ -1,0 +1,17 @@
+{
+  "case": "07-invalid-signature",
+  "exit_code": 2,
+  "output": {
+    "error": {
+      "code": "invalid_signature"
+    },
+    "mode": "dry-run",
+    "safety": {
+      "network_calls": 0,
+      "retry_delays_executed": 0,
+      "secrets_rendered": false
+    }
+  },
+  "process": "separate CLI process",
+  "stderr": ""
+}

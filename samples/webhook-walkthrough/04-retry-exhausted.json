@@ -1,0 +1,181 @@
+{
+  "case": "04-retry-exhausted",
+  "exit_code": 1,
+  "output": {
+    "audit": [
+      {
+        "action": "authentication_verified",
+        "details": {
+          "algorithm": "hmac-sha256",
+          "signature": "[REDACTED]",
+          "verified": true
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 1
+      },
+      {
+        "action": "event_claimed",
+        "details": {
+          "payload_fingerprint": "1b339c69a25198ae5b0eb2ff5b22d372b17876a75674abd62c642266221263ab"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 2
+      },
+      {
+        "action": "crm_attempt",
+        "details": {
+          "attempt": 1,
+          "classification": "retryable",
+          "code": "http_500",
+          "http_status": 500,
+          "retry": {
+            "backoff_seconds": 1,
+            "delay_seconds": 1,
+            "retry_after_capped": false,
+            "retry_after_seconds": null,
+            "scheduled": true,
+            "source": "exponential_backoff"
+          },
+          "status": "failed"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 3
+      },
+      {
+        "action": "crm_attempt",
+        "details": {
+          "attempt": 2,
+          "classification": "retryable",
+          "code": "http_500",
+          "http_status": 500,
+          "retry": {
+            "backoff_seconds": 2,
+            "delay_seconds": 2,
+            "retry_after_capped": false,
+            "retry_after_seconds": null,
+            "scheduled": true,
+            "source": "exponential_backoff"
+          },
+          "status": "failed"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 4
+      },
+      {
+        "action": "crm_attempt",
+        "details": {
+          "attempt": 3,
+          "classification": "retryable",
+          "code": "http_500",
+          "http_status": 500,
+          "retry": {
+            "backoff_seconds": 4,
+            "delay_seconds": null,
+            "retry_after_capped": false,
+            "retry_after_seconds": null,
+            "scheduled": false,
+            "source": "attempt_limit"
+          },
+          "status": "failed"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 5
+      },
+      {
+        "action": "retry_exhausted",
+        "details": {
+          "attempts_in_run": 3
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "sequence": 6
+      }
+    ],
+    "authentication": {
+      "algorithm": "hmac-sha256",
+      "signature": "[REDACTED]",
+      "verified": true
+    },
+    "ledger": {
+      "backend": "sqlite",
+      "durable": true
+    },
+    "mode": "dry-run",
+    "retry_policy": {
+      "base_backoff_seconds": 1,
+      "delay_mode": "record_only",
+      "max_attempts": 3,
+      "max_backoff_seconds": 8,
+      "max_retry_after_seconds": 30
+    },
+    "runs": [
+      {
+        "attempts": [
+          {
+            "attempt": 1,
+            "classification": "retryable",
+            "code": "http_500",
+            "http_status": 500,
+            "retry": {
+              "backoff_seconds": 1,
+              "delay_seconds": 1,
+              "retry_after_capped": false,
+              "retry_after_seconds": null,
+              "scheduled": true,
+              "source": "exponential_backoff"
+            },
+            "status": "failed"
+          },
+          {
+            "attempt": 2,
+            "classification": "retryable",
+            "code": "http_500",
+            "http_status": 500,
+            "retry": {
+              "backoff_seconds": 2,
+              "delay_seconds": 2,
+              "retry_after_capped": false,
+              "retry_after_seconds": null,
+              "scheduled": true,
+              "source": "exponential_backoff"
+            },
+            "status": "failed"
+          },
+          {
+            "attempt": 3,
+            "classification": "retryable",
+            "code": "http_500",
+            "http_status": 500,
+            "retry": {
+              "backoff_seconds": 4,
+              "delay_seconds": null,
+              "retry_after_capped": false,
+              "retry_after_seconds": null,
+              "scheduled": false,
+              "source": "attempt_limit"
+            },
+            "status": "failed"
+          }
+        ],
+        "crm_payload": {
+          "company": "Analytical Engines",
+          "email": "buyer@example.com",
+          "external_event_id": "evt_demo_001",
+          "full_name": "Ada Lovelace",
+          "source_event_type": "contact.upserted"
+        },
+        "idempotency_key": "whk_v1_e1bd7a50be97f0ad9d52ffec",
+        "outcome": "retry_exhausted",
+        "payload_fingerprint": "1b339c69a25198ae5b0eb2ff5b22d372b17876a75674abd62c642266221263ab"
+      }
+    ],
+    "safety": {
+      "network_calls": 0,
+      "retry_delays_executed": 0,
+      "secrets_rendered": false
+    },
+    "schema_version": "2.0",
+    "source": "webhook"
+  },
+  "process": "separate CLI process",
+  "stderr": ""
+}
