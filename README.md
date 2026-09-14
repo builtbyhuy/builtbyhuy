@@ -78,6 +78,23 @@ inline error messages, keyboard focus and an original house illustration.
 *Independent, Codex-assisted sample for a fictional company. No message is sent,
 no request is booked, and no customer or conversion result is claimed.*
 
+### 4. Practical Tools — ten local workflows with inspectable results
+
+**Problem modeled:** everyday data and file tasks need useful outputs, clear review steps,
+and predictable behavior when input is malformed or work is repeated.
+
+**Implementation:** a Python/Flask workbench with receipt OCR, inventory review, CSV cleanup,
+file organization, note search, application tracking, recall cards, image preparation,
+data profiling and a local webhook delivery simulator.
+
+[Explore the collection](https://github.com/builtbyhuy/practical-tools) ·
+[Review the checks and limits](https://github.com/builtbyhuy/practical-tools/blob/main/docs/VERIFICATION.md)
+
+**Relevant work:** Python, SQLite, form recovery, safe file operations, image processing,
+idempotency and bounded retries.
+*Independent, Codex-assisted portfolio collection with fictional examples. Local single-user
+applications; no customer deployment or business result is claimed.*
+
 ## Other engineering work
 
 - **SkillArena — independent product.** Built a Next.js, React and TypeScript
