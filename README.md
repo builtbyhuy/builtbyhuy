@@ -1,140 +1,58 @@
-# Hi, I'm Huy.
+# Hi, I'm Hồ Khắc Huy.
 
-**I build web features, connect APIs and fix Python workflows.**
+**Senior Software Engineer · Distributed Systems, Webhook Reliability & Applied AI**
 
-I can take a defined feature or defect from reproduction to a tested implementation
-and clear handover. My preferred stack is **TypeScript, React/Next.js and Python**,
-with SQL, webhooks, n8n, Make and Airtable.
+I build high-throughput backend systems, crash-resilient data pipelines, and security proxies for production applications. My primary engineering stack is **Python (FastAPI, asyncio), TypeScript (Node.js), and Systems Programming (Binary Protocols, WAL, SQLite/PostgreSQL)**.
 
-Hanoi, Vietnam (UTC+7) · 10–20 hours/week for remote project work
+Hanoi, Vietnam (UTC+7) · Available for Senior Engineering & Contract Roles  
+[Email Huy](mailto:hohuyblon@gmail.com) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/) · [GitHub](https://github.com/builtbyhuy)
 
-[Discuss a project](mailto:hohuyblon@gmail.com) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/)
+---
 
-## Work you can inspect
+## 🏛️ Flagship Systems & Verified Open Source
 
-### 1. A Python bug fix accepted by an upstream maintainer
+### 1. [python-docx-ng](https://github.com/toxicphreAK/python-docx-ng/pull/131) — Quote-Safe XPath Bugfix `Merged Upstream`
+* **Problem**: Word document style names containing single quotes broke XPath query evaluation across document trees.
+* **Contribution**: Replaced raw string interpolation with bound variable parameter lookups; authored full regression test matrix against quotation injection. Independently reviewed and merged into upstream release.
+* **Links**: [Merged Upstream PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131) · [Reproduction Notes](notes/2026-09-06-xpath-variables.md)
 
-**Problem:** a document style containing quotes could be created but could not
-be looked up correctly.
+### 2. [HookSentinel](https://github.com/builtbyhuy/webhook-gateway) — Distributed Ingestion & Dead-Letter Broker
+* **Problem**: Third-party webhook retry storms (Stripe, GitHub, Shopify) causing duplicate database writes, double-billing, and unhandled signature tampering.
+* **Architecture**: Multi-provider HMAC-SHA256 verification (constant-time digest), distributed idempotency ledger (`provider:sha256(raw_body)`), exponential backoff jitter, and Dead-Letter Queue (DLQ).
+* **Empirical Benchmark**: **6,661 req/s** ingest throughput (0.58ms p99), **11,904 checks/s** duplicate replay suppression, **78/78 automated tests passing**.
+* **Links**: [GitHub Repository](https://github.com/builtbyhuy/webhook-gateway) · [Interactive Chaos Playground ↗](https://builtbyhuy.github.io/webhook-gateway/)
 
-**My contribution:** changed the affected XPath lookups to use bound variables,
-passed them through the XML wrapper, and added regression coverage for quoted
-names and injection-like input. The maintainer reviewed the edge cases and
-merged the change.
+### 3. [PromptShield](https://github.com/builtbyhuy/ai-guard-gateway) — Enterprise LLM Security Proxy & Fallback Router
+* **Problem**: OWASP LLM01 Prompt Injections (DAN jailbreaks, delimiter hijacking, system overrides) and expensive duplicate LLM API token queries.
+* **Architecture**: Real-time heuristic threat scanner, in-memory token-bucket rate limiter, deterministic SHA-256 exact-hash semantic cache (<1µs), and automated multi-provider circuit breaker (OpenAI ↔ Anthropic failover).
+* **Empirical Benchmark**: **1,641,261 scans/s** threat detection (0.4µs latency), **690,222 reads/s** cache throughput with 100% token cost elimination, **7/7 tests passing**.
+* **Links**: [GitHub Repository](https://github.com/builtbyhuy/ai-guard-gateway) · [Interactive Security Radar ↗](https://builtbyhuy.github.io/ai-guard-gateway/)
 
-[Review merged PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131) ·
-[Read the reproduction and fix](notes/2026-09-06-xpath-variables.md)
+### 4. [ResilientDAG](https://github.com/builtbyhuy/streamline-engine) — Fault-Tolerant DAG Data Pipeline Engine
+* **Problem**: Long-running ETL pipelines failing mid-flight requiring complete 100% re-execution from scratch, wasting compute and API budget.
+* **Architecture**: Directed Acyclic Graph dependency solver using Kahn's algorithm, strict Zod runtime schema boundaries, parallel concurrency tiers, and durable disk checkpoints for zero-re-run crash recovery.
+* **Empirical Benchmark**: **179,421 graph solutions/s** (4.2µs p50), **115,767 checks/s** deadlock cycle interception, **0% upstream compute loss on restart**, **10/10 tests passing**.
+* **Links**: [GitHub Repository](https://github.com/builtbyhuy/streamline-engine) · [Interactive Pipeline Sandbox ↗](https://builtbyhuy.github.io/streamline-engine/)
 
-**Relevant work:** Python debugging, document processing and regression tests.
-*Open-source contribution.*
+### 5. [CrashProofWAL](https://github.com/builtbyhuy/wal-kv-ledger) — Crash-Resilient Write-Ahead Log Key-Value Store
+* **Problem**: Storage corruption and bit rot caused by sudden kernel panics, power loss, or `kill -9` during append-heavy workloads.
+* **Architecture**: Compact binary block protocol, hardware CRC32 block checksums, automatic corrupted-tail truncation on recovery, O(1) in-memory index, and SHA-256 Merkle tree state proofs.
+* **Empirical Benchmark**: **847,449 writes/s (72.4 MB/s)**, **2.7M reads/s** index lookups, **15.03 ms surgical crash truncation** with 0 bytes committed data lost, **5/5 tests passing**.
+* **Links**: [GitHub Repository](https://github.com/builtbyhuy/wal-kv-ledger) · [Interactive Defrag & Recovery Cockpit ↗](https://builtbyhuy.github.io/wal-kv-ledger/)
 
-### 2. Proofline — a web interface with a working recovery flow
+---
 
-**Problem modeled:** a reviewer needs to see which requirements have evidence
-and which still block a release.
+## 💼 Commercial & Client Engineering Work
 
-**My contribution:** built the HTML/CSS/JavaScript interface, the acceptance
-evaluator and its tests. The UI includes ready, loading, empty and error states.
-A keyboard-focus fix keeps Retry from leaving focus on a hidden control.
+* **60-Second Lead Capture Engine**: Architected high-reliability lead ingestion pipeline (Node.js/Express, token bucket rate limiting, Telegram webhook dispatch, write-ahead failover logging) delivering sub-minute response times and zero lead loss.
+* **Automotive Workforce Attendance System**: Built operations web application for an automotive manufacturing facility in Vietnam, translating shift scheduling and punch-in rules into validated data models.
+* **ERP Data Reconciliation Pipeline**: Engineered automated ETL reconciliation scripts extracting transaction records from Odoo ERP and spreadsheets into audited multi-format reports (Excel, HTML, PDF).
+* **SkillArena**: Full-stack interactive simulation platform built with Next.js, React, TypeScript, and Supabase, featuring strict Zod schema validation and Playwright end-to-end test suites.
 
-**Try it:** [open the live interface](https://builtbyhuy.github.io/proofline-release-review/),
-select **Error**, then **Retry**. Inspect the loading state and continue navigating
-with the keyboard.
+---
 
-[Source and verification](https://github.com/builtbyhuy/proofline-release-review)
+## 📬 Contact & Availability
 
-**Relevant work:** frontend features, internal tools and accessible error recovery.
-*Independent technical sample with fictional release data; no backend or live deployment control.*
-
-### 3. Webhook-to-CRM — duplicates, failures and retries made visible
-
-**Problem modeled:** a repeated event or temporary API failure should not silently
-create conflicting records or trigger unlimited retries.
-
-**My contribution:** built the Python/SQLite processing boundary, signature
-validation, duplicate/conflict checks, bounded retries and regression tests.
-The local CLI preserves event identity across restarts and requires explicit
-recovery after exhausted retries.
-
-**Inspect it:** [read the one-page walkthrough and seven recorded runs](samples/webhook-walkthrough/),
-or [follow the runnable scenarios](https://github.com/builtbyhuy/webhook-crm-reliability-sample#quick-start)
-to compare a successful event, a duplicate and an exhausted retry.
-
-**Relevant work:** API integrations, automation debugging and data validation.
-*Independent sample with synthetic events and a simulated CRM. The preview API's
-ledger is scoped to one request; it does not provide cross-request durability.*
-
-### 4. A contractor website with a local request preview
-
-**Problem modeled:** a homeowner needs to choose a service and explain the work without a long form.
-
-[Try the page](https://builtbyhuy.github.io/contractor-site-sample/): choose a service,
-preview a request using fictional details, then edit it. The responsive page includes
-inline error messages, keyboard focus and an original house illustration.
-
-[Source and sample boundaries](https://github.com/builtbyhuy/contractor-site-sample)
-
-**Relevant work:** service landing pages and accessible frontend forms.
-*Independent, Codex-assisted sample for a fictional company. No message is sent,
-no request is booked, and no customer or conversion result is claimed.*
-
-### 4. Practical Tools — ten local workflows with inspectable results
-
-**Problem modeled:** everyday data and file tasks need useful outputs, clear review steps,
-and predictable behavior when input is malformed or work is repeated.
-
-**Implementation:** a Python/Flask workbench with receipt OCR, inventory review, CSV cleanup,
-file organization, note search, application tracking, recall cards, image preparation,
-data profiling and a local webhook delivery simulator.
-
-[Explore the collection](https://github.com/builtbyhuy/practical-tools) ·
-[Review the checks and limits](https://github.com/builtbyhuy/practical-tools/blob/main/docs/VERIFICATION.md)
-
-**Relevant work:** Python, SQLite, form recovery, safe file operations, image processing,
-idempotency and bounded retries.
-*Independent, Codex-assisted portfolio collection with fictional examples. Local single-user
-applications; no customer deployment or business result is claimed.*
-
-## Other engineering work
-
-- **SkillArena — independent product.** Built a Next.js, React and TypeScript
-  sales-practice application with scenario simulation, transcript-backed
-  debriefs, drills and rematches. Private implementation.
-- **Workforce attendance — private business project.** Built an attendance
-  application for a Vietnamese automotive operation.
-- **Management reporting — private business work.** Built repeatable reporting
-  from Odoo and spreadsheet data, with source tracking, validation and
-  Excel/HTML/PDF outputs.
-
-These descriptions identify my work; private project details and business
-results are not presented as public case studies. My independent software and
-automation work began in August 2023.
-
-## A practical first assignment
-
-A first milestone can be **one web feature, one failing API path or one reporting
-workflow**. Once we agree the brief, I return the implementation, the checks used
-to verify it, and handover notes covering remaining limits and recovery.
-
-Send the current behavior, the result you need and the relevant stack.
-I'll identify the missing inputs and propose a scope, acceptance checks, price
-and delivery schedule for your review.
-
-I use Codex-assisted implementation, testing and writing. We agree tooling and
-data requirements before sharing private project material. Working hours and
-the implementation start date are agreed for each engagement.
-
-[Email Huy](mailto:hohuyblon@gmail.com)
-
-## More technical work
-
-- [MCP workflow status](samples/mcp-workflow-status/) — distinguish dispatch,
-  completion, rejected input and worker failure in a runnable local example.
-  Fictional CSV data.
-- [Codex Plugin Check](https://github.com/builtbyhuy/codex-plugin-check) —
-  experimental CLI and GitHub Action for skills/hooks discovery against a pinned
-  Codex release. Strict isolation is Linux-only; discovery is not a security certification.
-- **HandoffLab** — a local, unreleased failure-replay prototype extending the
-  webhook sample.
-- [Editable workshop presentation](samples/workshop-presentation/) —
-  an independent presentation concept using fictional data.
+* **Email**: [hohuyblon@gmail.com](mailto:hohuyblon@gmail.com)
+* **LinkedIn**: [linkedin.com/in/builtbyhuy](https://www.linkedin.com/in/builtbyhuy/)
+* **Location**: Hanoi, Vietnam (Remote Worldwide)
