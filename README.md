@@ -4,7 +4,7 @@
 
 I build high-throughput backend systems, crash-resilient data pipelines, and security proxies for production applications. My primary engineering stack is **Python (FastAPI, asyncio), TypeScript (Node.js), and Systems Programming (Binary Protocols, WAL, SQLite/PostgreSQL)**.
 
-Hanoi, Vietnam (UTC+7) · Available for Senior Engineering & Contract Roles  
+Ho Chi Minh City, Vietnam (UTC+7) · Available for Senior Engineering & Contract Roles  
 [Email Huy](mailto:hohuyblon@gmail.com) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/) · [GitHub](https://github.com/builtbyhuy)
 
 ---
@@ -55,4 +55,4 @@ Hanoi, Vietnam (UTC+7) · Available for Senior Engineering & Contract Roles
 
 * **Email**: [hohuyblon@gmail.com](mailto:hohuyblon@gmail.com)
 * **LinkedIn**: [linkedin.com/in/builtbyhuy](https://www.linkedin.com/in/builtbyhuy/)
-* **Location**: Hanoi, Vietnam (Remote Worldwide)
+* **Location**: Ho Chi Minh City, Vietnam (Remote Worldwide)
