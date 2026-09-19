@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentToolGuard — AI Agent Tool-Call Firewall &amp; Blast-Radius Limiter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #080b11;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(255, 255, 255, 0.18);
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-red: #f43f5e;
+      --accent-amber: #f59e0b;
+      --accent-purple: #a855f7;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+    }
+
+    header {
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 11, 17, 0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    h1 {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 24px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .stat-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    main {
+      flex: 1;
+      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 28px;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .panel-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .action-btn {
+      width: 100%;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+      text-align: left;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .action-btn:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: var(--border-highlight);
+      transform: translateY(-1px);
+    }
+
+    .action-btn.safe:hover { border-color: var(--accent-emerald); }
+    .action-btn.inject:hover { border-color: var(--accent-red); }
+    .action-btn.loop:hover { border-color: var(--accent-amber); }
+    .action-btn.auth:hover { border-color: var(--accent-purple); }
+
+    .btn-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 4px;
+    }
+
+    .log-container {
+      background: #05070a;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      height: 520px;
+      overflow-y: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .log-row {
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.5);
+      border-left: 3px solid #334155;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 0.15s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .log-row.pass { border-color: var(--accent-emerald); }
+    .log-row.reject { border-color: var(--accent-red); background: rgba(244, 63, 94, 0.08); }
+    .log-row.cycle { border-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08); }
+    .log-row.unauth { border-color: var(--accent-purple); background: rgba(168, 85, 247, 0.08); }
+
+    .badge-status {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .badge-status.pass { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+    .badge-status.reject { background: rgba(244, 63, 94, 0.2); color: var(--accent-red); }
+    .badge-status.cycle { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); }
+    .badge-status.unauth { background: rgba(168, 85, 247, 0.2); color: var(--accent-purple); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>AgentToolGuard</h1>
+      <span class="brand-badge">5.3µs DEFENSE</span>
+      <span style="font-size: 13px; color: var(--text-muted);">Deterministic AI Agent Tool-Call Firewall</span>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-val" id="stat-evals">0</span>
+        <span class="stat-lbl">Evaluations</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" style="color: var(--accent-emerald);" id="stat-passed">0</span>
+        <span class="stat-lbl">Passed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" style="color: var(--accent-red);" id="stat-deflected">0</span>
+        <span class="stat-lbl">Injections</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" style="color: var(--accent-amber);" id="stat-cycles">0</span>
+        <span class="stat-lbl">Loops Broken</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="panel-title">Chaos &amp; Scenario Injector</div>
+
+      <button class="action-btn safe" onclick="simulateValidCall()">
+        <div>
+          <div>🟢 1. Legitimate Tool Call</div>
+          <div class="btn-sub">search_kb(query='reset password', limit=10)</div>
+        </div>
+        <span>→</span>
+      </button>
+
+      <button class="action-btn inject" onclick="simulateInjection()">
+        <div>
+          <div>🔴 2. Malicious Payload Injection</div>
+          <div class="btn-sub">search_kb(query="'; DROP TABLE embeddings; --")</div>
+        </div>
+        <span>⚡</span>
+      </button>
+
+      <button class="action-btn loop" onclick="simulateAgentLoop()">
+        <div>
+          <div>🟡 3. Trigger Agent Thrashing Loop</div>
+          <div class="btn-sub">Spam 3 identical calls to trip cycle detector</div>
+        </div>
+        <span>🔁</span>
+      </button>
+
+      <button class="action-btn auth" onclick="simulateUnauthorizedCritical()">
+        <div>
+          <div>🟣 4. Unauthorized Critical Mutation</div>
+          <div class="btn-sub">delete_account(id='acc_99') [No Auth Token]</div>
+        </div>
+        <span>🔒</span>
+      </button>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span>Real-Time Audit Ledger</span>
+        <button onclick="clearLogs()" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:11px;">CLEAR</button>
+      </div>
+      <div class="log-container" id="log-container">
+        <!-- Logs appear here -->
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let evals = 0, passed = 0, deflected = 0, cycles = 0;
+    let loopCounter = 0;
+
+    function playChime(freq1, freq2) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq1, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(freq2, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.3);
+      } catch (e) {}
+    }
+
+    function addLog(type, tool, message, latencyUs) {
+      evals++;
+      document.getElementById('stat-evals').innerText = evals;
+
+      if (type === 'pass') { passed++; playChime(587, 880); }
+      if (type === 'reject') { deflected++; playChime(440, 220); }
+      if (type === 'cycle') { cycles++; playChime(330, 220); }
+      if (type === 'unauth') { playChime(261, 196); }
+
+      document.getElementById('stat-passed').innerText = passed;
+      document.getElementById('stat-deflected').innerText = deflected;
+      document.getElementById('stat-cycles').innerText = cycles;
+
+      const container = document.getElementById('log-container');
+      const row = document.createElement('div');
+      row.className = `log-row ${type}`;
+      row.innerHTML = `
+        <div>
+          <span style="color:var(--text-muted); margin-right:8px;">[${new Date().toLocaleTimeString()}]</span>
+          <strong>${tool}</strong>: <span style="color:var(--text-secondary);">${message}</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="color:var(--accent-blue); font-size:11px;">${latencyUs} µs</span>
+          <span class="badge-status ${type}">${type.toUpperCase()}</span>
+        </div>
+      `;
+      container.prepend(row);
+    }
+
+    function simulateValidCall() {
+      const latency = (Math.random() * 3 + 4).toFixed(2);
+      addLog('pass', 'search_kb', 'PASSED: Schema & boundaries verified.', latency);
+    }
+
+    function simulateInjection() {
+      const latency = (Math.random() * 2 + 1.2).toFixed(2);
+      addLog('reject', 'search_kb', 'INJECTION_DEFLECTED: SQL fragment intercepted.', latency);
+    }
+
+    function simulateAgentLoop() {
+      loopCounter++;
+      if (loopCounter < 3) {
+        addLog('pass', 'search_kb', `Invocation #${loopCounter} with query='agent_loop'`, '5.12');
+      } else {
+        addLog('cycle', 'search_kb', 'CYCLE_INTERCEPTED: Agent thrashing 3x consecutive identical parameters.', '3.84');
+        loopCounter = 0;
+      }
+    }
+
+    function simulateUnauthorizedCritical() {
+      const latency = (Math.random() * 1.5 + 1.5).toFixed(2);
+      addLog('unauth', 'delete_account', 'BLOCKED_UNAUTHORIZED: Missing cryptographic approval signature.', latency);
+    }
+
+    function clearLogs() {
+      document.getElementById('log-container').innerHTML = '';
+    }
+  </script>
+</body>
+</html>

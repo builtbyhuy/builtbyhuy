@@ -30,7 +30,7 @@ Empirically benchmarked, crash-tested systems defending enterprise LLM deploymen
 * **Architecture:** Deterministic parameter schema boundary validator, deep regex injection deflection, risk tiering (Tier 1 Read-Only to Tier 3 Critical requiring cryptographic authorization signatures), and sliding-window hash chain cycle detection.
 * **Empirical Benchmark:** **102,516 evaluations/s** (5.33µs p50 latency), **435,640 injection attacks deflected/s**, **100% loop interception**, **10/10 tests passing**.
 * **Stack:** `Python` · `FastAPI` · `Zod / Schema Boundary` · `Cycle Detection`
-* 🎮 **[Interactive Browser Demo Available Locally]** &nbsp;|&nbsp; 📦 **[View Architecture & Specs ↗](https://github.com/builtbyhuy/agent-tool-guard)**
+* 📦 **[Inspect Full Source Code, Tests &amp; Benchmarks ↗](examples/agent-tool-guard/)**
 
 ---
 
@@ -77,7 +77,7 @@ Empirically benchmarked, crash-tested systems defending enterprise LLM deploymen
 | System | Domain | Primary Guarantee | Measured Throughput | Latency / SLA | Test Suite | Live Interactive Demo |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PromptShield** | Applied AI | OWASP LLM01 Jailbreak Defense | **1,641,261 scans/s** | 0.40µs scan | 7/7 Passing | [Launch Security Radar ↗](https://builtbyhuy.github.io/ai-guard-gateway/) |
-| **AgentToolGuard** | Applied AI | Tool-Call Injection &amp; Loop Defense | **102,516 evals/s** | 5.33µs p50 | 10/10 Passing | [View Specs &amp; Harness ↗](https://github.com/builtbyhuy/agent-tool-guard) |
+| **AgentToolGuard** | Applied AI | Tool-Call Injection &amp; Loop Defense | **102,516 evals/s** | 5.33µs p50 | 10/10 Passing | [View Source &amp; Benchmarks ↗](examples/agent-tool-guard/) |
 | **Support Readiness**| Applied AI | Anti-Hallucination Support Router | Grounded Decision | 100% Human Review | 11/11 Passing | [Inspect Workbench ↗](https://builtbyhuy.github.io/gorgias-wismo-returns-readiness-proof/) |
 | **HookSentinel** | Systems | 100% Replay Lockout &amp; DLQ | **6,661 req/s** | 0.58ms p99 | 78/78 Passing | [Try Chaos Simulator ↗](https://builtbyhuy.github.io/webhook-gateway/) |
 | **CrashProofWAL** | Storage | Bit-Rot Proof &amp; Append Durability | **847,449 writes/s** | 15.03ms recovery | 5/5 Passing | [Try Defrag Cockpit ↗](https://builtbyhuy.github.io/wal-kv-ledger/) |
