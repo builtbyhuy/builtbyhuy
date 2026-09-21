@@ -1,50 +1,46 @@
 # Hồ Khắc Huy
 
-**Entry-level Automation & Implementation**  
-Hanoi, Vietnam · hohuyblon@gmail.com · [GitHub](https://github.com/builtbyhuy)
+**Automation & Implementation | Entry-level**  
+Hanoi, Vietnam · huy@wove.agency · [GitHub](https://github.com/builtbyhuy)
 
 ## Profile
 
-RMIT Human Resource Management student transitioning into automation and implementation. Coursework finished; final results pending. Currently working in import/export documentation at MAX, an automotive-parts business. Practical work includes a Telegram vehicle-tracking project, a Python open-source contribution, and an independent webhook integration sample. Seeking an entry-level role with technical guidance and clear delivery responsibilities.
+RMIT Human Resource Management background with hands-on automation projects and a merged Python open-source contribution. Currently working in import/export documentation at MAX. Seeking an entry-level automation, implementation or application-support role, combining workflow analysis, AI-assisted development and strong English communication.
 
-## Selected technical work
+## Selected project work
 
-### Python open-source contribution — merged August 2026
+### Python open-source contribution | August 2026
+[python-docx-ng — merged PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131)
 
-[python-docx-ng PR #131: support quotes in style lookups](https://github.com/toxicphreAK/python-docx-ng/pull/131)
+- Replaced string-interpolated XPath lookups with bound variables for style names, style IDs and latent styles containing quotes.
+- Preserved XML namespace handling and added regression tests. Submitted by `builtbyhuy`; merged into `toxicphreAK/python-docx-ng` on 4 August 2026.
 
-- Replaced string-interpolated XPath lookups with bound variables for style names, style IDs and latent styles.
-- Forwarded variables through the XML wrapper while preserving namespace behavior; added focused regression tests.
-- Contribution submitted by `builtbyhuy` and merged on 4 August 2026. This is a contribution to `toxicphreAK/python-docx-ng`, not a claim of employment or contribution to a different repository.
-
-### Telegram vehicle entry/exit tracking — personal project
-
+### Telegram vehicle entry/exit tracking | Personal project
 [Source repository](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi)
 
-- Built a workflow accepting vehicle photographs and entry/exit commands through Telegram, with license-plate recognition, notifications and spreadsheet tracking.
-- Repository contains Node.js webhook handling, Google Cloud Vision integration, Google Sheets records and Excel report generation.
-- Not presented as paid client delivery; no claimed recognition accuracy, time savings or production reliability.
+- Built a Telegram workflow for vehicle photographs, recognition results, notifications and spreadsheet-based entry/exit tracking.
+- Repository includes Node.js webhook handling, Google Cloud Vision integration, Google Sheets records and Excel reporting. Presented as project work, not paid-client delivery.
 
-### Webhook-to-CRM reliability boundary — independent work sample
-
+### Webhook-to-CRM reliability boundary | Independent sample
 [Source and reproduction instructions](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
 
-- Python sample with HMAC signature checks, SQLite-backed duplicate/conflict handling and bounded simulated retry scenarios.
-- Uses synthetic input and a simulated CRM. Not a real customer integration or production-results claim.
+- Python work sample covering signature checks, SQLite duplicate/conflict handling and bounded retry scenarios, with documented tests and failure cases.
+- Uses synthetic inputs and a simulated CRM; does not represent a production customer integration.
 
-## Current work
+## Work experience
 
-**Import/Export Documentation Assistant — MAX, automotive parts | Hanoi | Current**
-
-Support import/export documentation at the family automotive-parts business. This is the employment role; the technical projects above are listed separately rather than represented as software-engineering employment.
+**Import/Export Documentation Assistant | MAX, automotive parts | Hanoi | Current**  
+Support import/export documentation at the automotive-parts business. Technical projects are listed separately from this employment role.
 
 ## Education
 
-**RMIT University Vietnam — Human Resource Management**  
-Coursework finished; awaiting final results. Degree not yet confirmed as awarded.
+**RMIT University Vietnam | Human Resource Management**  
+Coursework finished; awaiting final results as of September 2026. Degree not yet awarded.
 
 ## Practical skills
 
-AI-assisted implementation; Python and JavaScript project work; Telegram/webhook workflows; spreadsheet-based tracking; basic integration testing and debugging. English: strong working proficiency. Vietnamese: native.
+**Project tools:** Python, JavaScript/Node.js, Telegram Bot API, webhooks, Excel/Google Sheets, Git/GitHub and SQLite project work.  
+**Working approach:** AI-assisted implementation and documentation, workflow analysis, regression testing and debugging.  
+**Languages:** Vietnamese (native); English (strong working proficiency).
 
-AI tools assist coding, research and documentation. The project links identify the scope of the work; they do not establish unaided proficiency or professional seniority. Start date and work schedule to be agreed with the employer.
+Start date and work schedule to be agreed with the employer.
