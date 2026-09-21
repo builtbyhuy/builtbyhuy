@@ -8,7 +8,7 @@ I enjoy turning a manual workflow into a small, understandable system: capture t
 My academic background is Human Resource Management at RMIT University Vietnam. I have finished my coursework and am awaiting final results. I currently work in import/export documentation at MAX, an automotive-parts business, and am moving toward automation and implementation work.
 
 **Contact:** [huy@wove.agency](mailto:huy@wove.agency) · alternate: [hohuyblon@gmail.com](mailto:hohuyblon@gmail.com)  
-**[Current CV](CV.md)** · **[Project evidence and runnable examples](notes/automation-evidence-2026-09-21.md)**
+**[Current CV](CV.md)** · **[Current CV PDF](samples/Ho_Khac_Huy_Software_Engineer_CV_2026-09-21.pdf)** · **[Project evidence and runnable examples](notes/automation-evidence-2026-09-21.md)**
 
 ## Application case study
 
