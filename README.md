@@ -10,6 +10,14 @@ My academic background is Human Resource Management at RMIT University Vietnam. 
 **Contact:** [huy@wove.agency](mailto:huy@wove.agency) · alternate: [hohuyblon@gmail.com](mailto:hohuyblon@gmail.com)  
 **[Current CV](CV.md)** · **[Project evidence and runnable examples](notes/automation-evidence-2026-09-21.md)**
 
+## Application case study
+
+### Keyloop Software Engineer — service-event proof of value
+
+I built a six-slide, job-specific demo that connects a real automotive service-workshop workflow to a proposed, testable service-event design. It separates real evidence from role adaptation and links the technical boundary to my independent webhook reliability sample.
+
+**[Read the case study and download the deck](case-studies/keyloop-software-engineer-demo/README.md)**
+
 ## Selected work
 
 ### Python style-lookup fix — merged open-source contribution

@@ -21,6 +21,13 @@ RMIT Human Resource Management background with hands-on automation projects and 
 - Built a Telegram workflow for vehicle photographs, recognition results, notifications and spreadsheet-based entry/exit tracking.
 - Repository includes Node.js webhook handling, Google Cloud Vision integration, Google Sheets records and Excel reporting. Presented as project work, not paid-client delivery.
 
+### Keyloop Software Engineer | Application proof-of-value demo | September 2026
+[Case study and deck](case-studies/keyloop-software-engineer-demo/README.md)
+
+- Created a six-slide, job-specific case study translating the real 2S Phúc Lợi vehicle-entry/exit workflow into a proposed service-event design with validation, deduplication, an API boundary and an audit trail.
+- Connected the proposal to an independent webhook reliability sample covering HMAC validation, idempotency, conflict detection, bounded retries and explicit failure handling.
+- Kept real evidence, proposed role adaptation and independent sample scope separate; no Keyloop internal data or client production outcome is claimed.
+
 ### Webhook-to-CRM reliability boundary | Independent sample
 [Source and reproduction instructions](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
 
