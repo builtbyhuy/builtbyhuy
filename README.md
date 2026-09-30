@@ -10,6 +10,7 @@ tools, handle failures and make the results inspectable.
 
 | Project | What to inspect |
 |---|---|
+| [AI Systems Lab](https://github.com/builtbyhuy/production-ai-systems) | Independent AI-assisted local PDF copilot with source-page citations, tenant controls and durable human approvals. Reproducible checks, historical local-model evidence and documented limits; production acceptance remains incomplete. |
 | [Merged Python contribution](https://github.com/toxicphreAK/python-docx-ng/pull/131) | Fixed quoted style-name and ID lookups in python-docx-ng using XPath variable binding and regression tests. Reviewed and merged by the maintainer. |
 | [Webhook-to-CRM reliability sample](https://github.com/builtbyhuy/webhook-crm-reliability-sample) | Python and SQLite signature verification, duplicate/conflict handling, bounded retries and operator recovery. Uses synthetic events and a simulated CRM. |
 | [Vehicle tracking workflow](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi) | Telegram input, license-plate recognition integration, notifications and spreadsheet tracking. [Offline boundary checks](samples/vehicle-boundary-demo.cjs) are available separately. |
