@@ -1,17 +1,23 @@
 # Hồ Khắc Huy
 
-**AI automation & API integrations**  
+**Small web features · Python fixes · AI-assisted development**  
 Hanoi, Vietnam · English / Vietnamese
 
-I build practical systems for operational workflows: validate the inputs, connect the
-tools, handle failures and make the results inspectable.
+I build small, inspectable app features. A useful starting task is one form with
+validation, a clear preview and an export, delivered with source files, tests and
+run instructions. Send a field list, mockup or reproducible bug; we can agree a
+bounded scope and fixed price before work starts.
+
+**[Try the working samples](https://builtbyhuy.github.io/proofline-release-review/samples/2026-09-30/)** ·
+**[Discuss one component](mailto:hohuyblon@gmail.com?subject=One%20web%20component)**
 
 ## Selected work
 
 | Project | What to inspect |
 |---|---|
+| [Interactive frontend samples](https://builtbyhuy.github.io/proofline-release-review/samples/2026-09-30/) | Try form validation and retained input, source-preserving review, and text/JSON exports. Nine independent HTML/CSS/JavaScript prototypes with synthetic examples and documented checks. |
+| [Merged Python contribution](https://github.com/toxicphreAK/python-docx-ng/pull/131) | Fixed a bug that broke style lookups containing quotation marks in python-docx-ng. Includes regression tests; reviewed and merged by the maintainer. |
 | [AI Systems Lab](https://github.com/builtbyhuy/production-ai-systems) | Independent AI-assisted local PDF copilot with source-page citations, tenant controls and durable human approvals. Reproducible checks, historical local-model evidence and documented limits; production acceptance remains incomplete. |
-| [Merged Python contribution](https://github.com/toxicphreAK/python-docx-ng/pull/131) | Fixed quoted style-name and ID lookups in python-docx-ng using XPath variable binding and regression tests. Reviewed and merged by the maintainer. |
 | [Webhook-to-CRM reliability sample](https://github.com/builtbyhuy/webhook-crm-reliability-sample) | Python and SQLite signature verification, duplicate/conflict handling, bounded retries and operator recovery. Uses synthetic events and a simulated CRM. |
 | [Vehicle tracking workflow](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi) | Telegram input, license-plate recognition integration, notifications and spreadsheet tracking. [Offline boundary checks](samples/vehicle-boundary-demo.cjs) are available separately. |
 
@@ -26,7 +32,7 @@ FastAPI, webhooks and document workflows.
 Open to automation, integration and implementation roles.
 
 **[CV](CV.md)** · **[CV PDF](samples/Ho_Khac_Huy_Software_Engineer_CV_2026-09-21.pdf)** ·
-**[LinkedIn](https://www.linkedin.com/in/builtbyhuy/)** · **[Email](mailto:huy@wove.agency)**
+**[LinkedIn](https://www.linkedin.com/in/builtbyhuy/)** · **[Email](mailto:hohuyblon@gmail.com)**
 
 [Automotive service-event case study](case-studies/keyloop-software-engineer-demo/README.md)
 · [Additional project evidence](notes/automation-evidence-2026-09-21.md)
