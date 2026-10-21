@@ -9,7 +9,7 @@ what information is missing, what can go wrong, and how someone can check a deci
 
 ## Two products. Different problems, different interfaces.
 
-### [QuoteLens — supplier offers, reviewed in context](https://quotelens-huy.hokhachuy1234.chatgpt.site/)
+### [QuoteLens — supplier offers, reviewed in context](https://builtbyhuy.github.io/quotelens-review-workbench/)
 
 A browser workbench for comparing the purchase a buyer would actually make.
 Create a request, bring your own CSV offers, inspect pack rounding, minimum orders and
@@ -17,24 +17,26 @@ delivery fees, and trace a choice back to its source row. A reviewed decision be
 to a specific revision; changing the inputs requires a new review.
 
 The engineering focus: exact money calculations, visible unknowns, source provenance
-and portable review records. The interface is a precise, paper-and-graphite decision ledger.
+and portable review records. Change the quantity in the opening comparison to see how
+whole packs change the winning supplier, then bring your own quotes.
 
-[**Use the product**](https://quotelens-huy.hokhachuy1234.chatgpt.site/) ·
-[Case study](https://quotelens-huy.hokhachuy1234.chatgpt.site/case-study) ·
+[**Use the product**](https://builtbyhuy.github.io/quotelens-review-workbench/) ·
+[Case study](https://builtbyhuy.github.io/quotelens-review-workbench/case-study.html) ·
 [Source, tests & run instructions](https://github.com/builtbyhuy/quotelens-review-workbench)
 
-### [PourLab — make a puzzle, then understand it](https://pourlab-huy.hokhachuy1234.chatgpt.site/)
+### [PourLab — make a puzzle, then understand it](https://builtbyhuy.github.io/pourlab-puzzle-studio/)
 
 An interactive water-sort studio: edit a level, test legal pours, undo a move,
 run exact search in a background worker and step through a checked solution.
 Bring your own level through the editor or portable JSON.
 
 The engineering focus: consistent editor/play/replay state, bounded A*/BFS search
-and verification against a separately implemented BFS oracle. The interface is a tactile,
-violet puzzle instrument. A search limit is reported as unresolved, not as proof of impossibility.
+and verification against a separately implemented BFS oracle. The studio opens in Play
+with a visible sorting goal; custom editing and solution search are available alongside
+the board. A search limit is reported as unresolved, not as proof of impossibility.
 
-[**Use the product**](https://pourlab-huy.hokhachuy1234.chatgpt.site/) ·
-[Case study](https://pourlab-huy.hokhachuy1234.chatgpt.site/about) ·
+[**Use the product**](https://builtbyhuy.github.io/pourlab-puzzle-studio/) ·
+[Case study](https://builtbyhuy.github.io/pourlab-puzzle-studio/about.html) ·
 [Source, tests & run instructions](https://github.com/builtbyhuy/pourlab-puzzle-studio)
 
 ## Reviewed work beyond my own repositories
