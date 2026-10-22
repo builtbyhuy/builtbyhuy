@@ -1,9 +1,9 @@
 # Hồ Khắc Huy
 
-**Practical tools, built with AI.**  
+**From idea to working tool.**
 Hanoi, Vietnam · English / Vietnamese
 
-I build independent tools with extensive Codex support, focusing on clear workflows, usable interfaces and results people can inspect. My background in import/export documentation shapes my interest in missing information, exceptions and traceability.
+I turn ideas into useful tools by directing AI through research, implementation, testing and iteration, then preparing the result for someone else to use. My background in import/export documentation shapes my interest in missing information, exceptions and traceability.
 
 **[Explore my portfolio](https://builtbyhuy.github.io/builtbyhuy/)** · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/) · [Email](mailto:hohuyblon@gmail.com)
 
@@ -15,20 +15,20 @@ I build independent tools with extensive Codex support, focusing on clear workfl
 - **[Explore the worked examples](https://builtbyhuy.github.io/web-reference-design/):** inspect desktop/mobile results and try the form interactions. The examples are fictional and create local previews.
 - **[Install the skill or inspect the source](https://github.com/builtbyhuy/web-reference-design):** use the workflow on your own project, with resource attribution and license notes included.
 
-My projects use Codex for research, code, debugging, tests and documentation. I set the goal and constraints, provide feedback and use these tools to revise the result. The portfolio exposes the resulting tools, decisions and checks for inspection.
+I define the task, guide the build, evaluate the output and refine what needs changing. Working demos, recorded checks and clear instructions make the result easy to inspect and continue.
 
 <details>
 <summary>Reviewed contribution and engineering cases</summary>
 
 ### A document-formatting bug, fixed and accepted upstream
 
-A valid style containing quotation marks could be created but fail when retrieved. I contributed the maintainer-described correction to python-docx-ng with AI assistance and regression coverage. The maintainer reviewed and merged it.
+A valid style containing quotation marks could be created but fail when retrieved. I contributed the maintainer-described correction to python-docx-ng with regression coverage. The maintainer reviewed and merged it.
 
 [Reviewed PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131) · [Original issue and diagnosis](https://github.com/toxicphreAK/python-docx-ng/issues/121)
 
 ### Vehicle entry/exit records
 
-An AI-assisted workflow connects Telegram photo intake, PostgreSQL records and a Google Sheets reporting view. Its concurrency case reproduces simultaneous requests creating duplicate active records and checks the correction with real database connections.
+A workflow connects Telegram photo intake, PostgreSQL records and a Google Sheets reporting view. Its concurrency case reproduces simultaneous requests creating duplicate active records and checks the correction with real database connections.
 
 [Case and reproduction](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md) · [Source](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi)
 

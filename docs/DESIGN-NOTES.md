@@ -19,7 +19,7 @@ Prepared 22 October 2026. This is a static portfolio for readers who need to und
 
 ## Specific adaptation decisions
 
-- **First viewport:** name/navigation above one clear statement, with a short explanation of extensive AI use. The large product example follows immediately rather than a generic feature-card grid.
+- **First viewport:** name/navigation above “From idea. To working tool.” A short explanation presents Huy's ability to direct AI through research, implementation, testing, iteration and usable delivery. The large product example follows immediately rather than a generic feature-card grid.
 - **Hierarchy:** one usable product first, then two bounded cases. QuoteLens and PourLab remain optional experiments in a native disclosure.
 - **Typography:** Manrope for functional text, restrained Georgia italic for the editorial title. Headings use tight tracking; body text has a comfortable reading measure.
 - **Palette:** warm paper `#f6f5ef`, ink `#202722`, muted text `#5c655d`, cobalt `#274ad8`. Cobalt indicates product identity and selected emphasis; primary buttons use ink.
@@ -32,6 +32,12 @@ Prepared 22 October 2026. This is a static portfolio for readers who need to und
 
 - [Vehicle workflow and its pinned case](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md): local PostgreSQL regression evidence, not production usage. The hub does not expose workshop records or account credentials.
 - [python-docx-ng PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131): merged upstream contribution. The issue/diagnosis came from upstream. The hub credits the correction and regression contribution without claiming independent discovery or employment.
-- AI contribution is explicit: Huy directs the goal, constraints and review; Codex supports research, implementation, debugging, checks and documentation. The existence of a generated site is not presented as proof of unaided programming fluency.
+- AI is presented as a working capability: Huy defines goals and constraints, directs the build, evaluates the result and guides revisions. The portfolio demonstrates this through usable tools, recorded checks and handover instructions. Detailed cases retain relevant implementation provenance; personal technical skills are described only through the work actually shown.
 
 The portfolio was produced locally. Publication status and any LinkedIn changes are separate from these files.
+
+## AI capability positioning revision — 22 October 2026
+
+Reframed the introduction and case copy around directing AI to produce useful tools: define the task, guide implementation, evaluate results, refine and hand over. Replaced repeated support disclaimers with concrete contribution and outcome descriptions. Kept the selected visual direction and factual example/data boundaries.
+
+Applied ui-ux-pro-max to this copy revision, including its Heading Line Balance guidance and body-text readability checks. Inspected the revised homepage on desktop and at a 390-pixel mobile width. Checked 320, 390, 1280 and 1440-pixel layouts: no horizontal overflow, local Manrope loaded, body line-height 1.65. Recreated and inspected the 1200 × 628 Featured cover from cover.html. This was a focused content and layout review; the earlier interaction evidence still refers to the unchanged controls and product behavior.
