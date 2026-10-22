@@ -1,53 +1,76 @@
 # Hồ Khắc Huy
 
-**Automation & Implementation | Entry-level**  
-Hanoi, Vietnam · huy@wove.agency · [GitHub](https://github.com/builtbyhuy)
+**Software Implementation & Workflow Automation**  
+Hanoi, Vietnam · hohuyblon@gmail.com · [GitHub](https://github.com/builtbyhuy) · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/)
 
 ## Profile
 
-RMIT Human Resource Management background with hands-on automation projects and a merged Python open-source contribution. Currently working in import/export documentation at MAX. Seeking an entry-level automation, implementation or application-support role, combining workflow analysis, AI-assisted development and strong English communication.
+Software and automation builder with a background in import/export documentation
+and a maintainer-reviewed Python contribution. Work connects operational rules,
+data validation, database transitions, failure recovery and usable interfaces.
+Projects use AI-assisted development, with source, decisions and reproduction
+steps available for review.
 
-## Selected project work
+## Selected engineering work
 
-### Python open-source contribution | August 2026
+### Reviewed Python contribution | August 2026
+
 [python-docx-ng — merged PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131)
 
-- Replaced string-interpolated XPath lookups with bound variables for style names, style IDs and latent styles containing quotes.
-- Preserved XML namespace handling and added regression tests. Submitted by `builtbyhuy`; merged into `toxicphreAK/python-docx-ng` on 4 August 2026.
+- Implemented bound XPath variables across style-name, style-ID and latent-style
+  lookups, preserving namespace handling and adding quote-related regressions.
+- The upstream maintainer reviewed the relevant cases and merged the change.
 
-### Telegram vehicle entry/exit tracking | Personal project
-[Source repository](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi)
+### Vehicle operations workflow | 2026
 
-- Built a Telegram workflow for vehicle photographs, recognition results, notifications and spreadsheet-based entry/exit tracking.
-- Repository includes Node.js webhook handling, Google Cloud Vision integration, Google Sheets records and Excel reporting. Presented as project work, not paid-client delivery.
+[Source and setup](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi) ·
+[PostgreSQL case](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md)
 
-### Keyloop Software Engineer | Application proof-of-value demo | September 2026
-[Case study and deck](case-studies/keyloop-software-engineer-demo/README.md)
+- Connected Telegram photo intake, configurable plate extraction, PostgreSQL
+  vehicle records and a Google Sheets reporting mirror.
+- Reproduced a concurrent first-entry defect with two real database connections;
+  moved transaction locking before lookup and checked the fresh schema and
+  migration path, rollback, thresholds and same-day exit/re-entry.
+- Kept operational state separate from asynchronous reporting and optional AI
+  report wording.
 
-- Created a six-slide, job-specific case study translating the real 2S Phúc Lợi vehicle-entry/exit workflow into a proposed service-event design with validation, deduplication, an API boundary and an audit trail.
-- Connected the proposal to an independent webhook reliability sample covering HMAC validation, idempotency, conflict detection, bounded retries and explicit failure handling.
-- Kept real evidence, proposed role adaptation and independent sample scope separate; no Keyloop internal data or client production outcome is claimed.
+### Codex Plugin Check | 2026
 
-### Webhook-to-CRM reliability boundary | Independent sample
-[Source and reproduction instructions](https://github.com/builtbyhuy/webhook-crm-reliability-sample)
+[CLI, GitHub Action and evidence](https://github.com/builtbyhuy/codex-plugin-check)
 
-- Python work sample covering signature checks, SQLite duplicate/conflict handling and bounded retry scenarios, with documented tests and failure cases.
-- Uses synthetic inputs and a simulated CRM; does not represent a production customer integration.
+- Reconciled requested source, installed identity and discovery registries into
+  structured receipts with explicit status and exit contracts.
+- Separated strict Linux/Docker checks from diagnostic mode and capability
+  declarations from execution. Retained pinned-version fixture evidence.
+- Added Windows/Linux validation for paths, process shutdown, filesystem
+  boundaries and the installed CLI package.
 
-## Work experience
+### Interactive browser tools | October 2026
 
-**Import/Export Documentation Assistant | MAX, automotive parts | Hanoi | Current**  
-Support import/export documentation at the automotive-parts business. Technical projects are listed separately from this employment role.
+[QuoteLens](https://builtbyhuy.github.io/quotelens-review-workbench/) ·
+[PourLab](https://builtbyhuy.github.io/pourlab-puzzle-studio/)
+
+- QuoteLens: purchase requests, CSV offers, whole-pack costs, source references
+  and reviews bound to their inputs.
+- PourLab: custom levels, legal play, Undo, bounded background search and checked
+  solution replay, with a complete 2D fallback.
+- Both independent projects include working apps, source and engineering cases.
+
+## Work background
+
+**Import/Export Documentation Assistant | MAX, automotive parts | Hanoi**  
+Support import/export documentation. Independent technical projects are listed
+separately above.
 
 ## Education
 
-**RMIT University Vietnam | Human Resource Management**  
-Coursework finished; awaiting final results as of September 2026. Degree not yet awarded.
+**RMIT University Vietnam | Human Resource Management coursework**  
+Coursework completed; final results pending as recorded in September 2026.
 
-## Practical skills
+## Tools and working approach
 
-**Project tools:** Python, JavaScript/Node.js, Telegram Bot API, webhooks, Excel/Google Sheets, Git/GitHub and SQLite project work.  
-**Working approach:** AI-assisted implementation and documentation, workflow analysis, regression testing and debugging.  
-**Languages:** Vietnamese (native); English (strong working proficiency).
+Python · JavaScript/Node.js · PostgreSQL · SQL · SQLite · REST APIs · webhooks ·
+Telegram Bot API · Google Sheets/Excel · Git/GitHub · regression testing ·
+debugging · workflow analysis · AI-assisted implementation and documentation.
 
-Start date and work schedule to be agreed with the employer.
+Vietnamese: native. English: strong working proficiency.
