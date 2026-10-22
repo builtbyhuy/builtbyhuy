@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reviewed Python contribution — Quote-safe document styles</title>
+    <meta
+      name="description"
+      content="A valid document style with quotation marks should remain usable. Huy’s AI-assisted python-docx-ng correction was reviewed and merged by the upstream maintainer."
+    />
+    <meta
+      property="og:title"
+      content="A document style should work with quotation marks"
+    />
+    <meta
+      property="og:description"
+      content="A small Python correctness change, reviewed and merged upstream. Read the problem, contribution and actual evidence."
+    />
+    <meta
+      property="og:image"
+      content="https://builtbyhuy.github.io/builtbyhuy/assets/portfolio-featured.png"
+    />
+    <link
+      rel="canonical"
+      href="https://builtbyhuy.github.io/builtbyhuy/work/python-docx.html"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="identity" href="../"
+        ><span class="identity-mark" aria-hidden="true">h</span>Hồ Khắc Huy</a
+      >
+      <nav aria-label="Main navigation">
+        <a href="../#work">Selected work</a
+        ><a href="../#approach">How I work</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="case-hero wrap">
+        <a class="breadcrumb" href="../">← Back to selected work</a>
+        <p class="eyebrow">03 / Reviewed Python contribution</p>
+        <h1>A document style should work<br />with quotation marks.</h1>
+        <p class="lede">
+          Developers generating Word documents can use valid style names
+          containing quotes. A lookup should treat those names as text, so a
+          style that was created can be found again.
+        </p>
+        <div class="actions">
+          <a
+            class="button"
+            href="https://github.com/toxicphreAK/python-docx-ng/pull/131"
+            >Read the merged contribution <span aria-hidden="true">↗</span></a
+          ><a
+            class="text-link"
+            href="https://github.com/toxicphreAK/python-docx-ng/pull/131/files"
+            >Inspect the change
+            <span class="external" aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <div class="wrap">
+        <dl class="case-meta">
+          <div>
+            <dt>Who it helps</dt>
+            <dd>
+              Developers creating and modifying Word documents with
+              python-docx-ng.
+            </dd>
+          </div>
+          <div>
+            <dt>The job</dt>
+            <dd>
+              Find a style by its valid name or ID, including text that contains
+              quotation marks.
+            </dd>
+          </div>
+          <div>
+            <dt>Why it belongs here</dt>
+            <dd>
+              An upstream maintainer reviewed and merged a bounded correction
+              with regression coverage.
+            </dd>
+          </div>
+        </dl>
+        <section class="case-layout">
+          <aside class="case-aside">
+            <p>python-docx-ng · PR #131</p>
+            <p>Merged 4 August 2026</p>
+            <p>AI-assisted contribution</p>
+            <p>
+              <a href="https://github.com/toxicphreAK/python-docx-ng/issues/121"
+                >Original issue &amp; diagnosis ↗</a
+              >
+            </p>
+          </aside>
+          <div class="case-body">
+            <h2>A normal name exposed a lookup problem.</h2>
+            <p>
+              A style could be created with a valid name containing quotation
+              marks, yet fail when retrieved. The lookup placed the name
+              directly inside an XPath expression, where its quotation marks
+              could change the expression’s meaning.
+            </p>
+            <figure class="quote-example">
+              <p>Client’s “Preferred” Heading</p>
+              <figcaption>
+                <small>Illustrative style name, not a customer document.</small>
+              </figcaption>
+            </figure>
+            <h2>Pass the text separately from the expression.</h2>
+            <p>
+              The contribution uses bound XPath variables across style-name,
+              style-ID and latent-style lookup paths, while retaining namespace
+              handling. Regression cases cover the shared wrapper and the public
+              style API.
+            </p>
+            <p>
+              The original issue and diagnosis came from upstream. My
+              contribution was the correction and regression coverage, developed
+              with AI assistance. The maintainer reviewed mixed quotes,
+              save/load and namespace behavior, then merged the change.
+            </p>
+            <details>
+              <summary>Evidence and contribution scope</summary>
+              <div>
+                <p>
+                  The public pull request contains the discussion, changed files
+                  and maintainer response. It is evidence of an accepted,
+                  specific correctness contribution; it is not a claim of
+                  independent bug discovery, paid engineering experience or
+                  broad security expertise.
+                </p>
+                <p>
+                  <a
+                    href="https://github.com/toxicphreAK/python-docx-ng/issues/121"
+                    >Issue and diagnosis ↗</a
+                  >
+                  ·
+                  <a
+                    href="https://github.com/toxicphreAK/python-docx-ng/pull/131/files"
+                    >Correction and tests ↗</a
+                  >
+                  ·
+                  <a
+                    href="https://github.com/toxicphreAK/python-docx-ng/pull/131#issuecomment-5180241589"
+                    >Maintainer review ↗</a
+                  >
+                </p>
+              </div>
+            </details>
+            <div class="actions">
+              <a
+                class="button"
+                href="https://github.com/toxicphreAK/python-docx-ng/pull/131"
+                >Inspect the reviewed work <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </section>
+        <div class="next-case">
+          <p>Back / A tool you can use</p>
+          <a href="web-reference-design.html"
+            >Create a clearer website brief <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="footer wrap">
+      <p>Hồ Khắc Huy · Built with extensive Codex support</p>
+      <div class="footer-links">
+        <a href="../">Selected work</a
+        ><a href="../guide.html" lang="vi">Hướng dẫn sử dụng</a
+        ><a href="../DESIGN-NOTES.md">Sources &amp; credits</a>
+      </div>
+    </footer>
+  </body>
+</html>

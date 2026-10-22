@@ -1,103 +1,51 @@
 # Hồ Khắc Huy
 
-**Software implementation · Python & JavaScript · Workflow automation**  
+**Practical tools, built with AI.**  
 Hanoi, Vietnam · English / Vietnamese
 
-I build tools around the details that make a workflow reliable: valid inputs,
-correct calculations, clear failure states and decisions that can be checked.
-My background in import/export documentation shapes that focus on information,
-exceptions and traceability.
+I build independent tools with extensive Codex support, focusing on clear workflows, usable interfaces and results people can inspect. My background in import/export documentation shapes my interest in missing information, exceptions and traceability.
 
-## Reviewed upstream
+**[Explore my portfolio](https://builtbyhuy.github.io/builtbyhuy/)** · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/) · [Email](mailto:hohuyblon@gmail.com)
 
-### [python-docx-ng — fixing a style that could be created but not retrieved](https://github.com/toxicphreAK/python-docx-ng/pull/131)
+## Web Reference Design
 
-A valid style name containing quotation marks could break its XPath lookup.
-I contributed the correction across style-name, style-ID and latent-style
-lookups, using bound variables while preserving custom namespaces. Regression
-cases cover the shared wrapper and public style API.
+**For people building websites with coding agents.** Turn a design reference into a working page, with a reusable skill that connects reference selection, implementation and checks of the rendered result.
 
-The upstream maintainer checked mixed quotes, save/load and namespace behavior,
-then merged the change on 4 August 2026.
+- **[Create a website brief](https://builtbyhuy.github.io/web-reference-design/brief/):** customize a brief, download it and use it in your own coding agent. The browser tool prepares the instructions; your agent does the implementation.
+- **[Explore the worked examples](https://builtbyhuy.github.io/web-reference-design/):** inspect desktop/mobile results and try the form interactions. The examples are fictional and create local previews.
+- **[Install the skill or inspect the source](https://github.com/builtbyhuy/web-reference-design):** use the workflow on your own project, with resource attribution and license notes included.
 
-[Issue and original diagnosis](https://github.com/toxicphreAK/python-docx-ng/issues/121) ·
-[Diff and regression tests](https://github.com/toxicphreAK/python-docx-ng/pull/131/files) ·
-[Maintainer review](https://github.com/toxicphreAK/python-docx-ng/pull/131#issuecomment-5180241589)
+My projects use Codex for research, code, debugging, tests and documentation. I set the goal and constraints, provide feedback and use these tools to revise the result. The portfolio exposes the resulting tools, decisions and checks for inspection.
 
-## Engineering work
+<details>
+<summary>Reviewed contribution and engineering cases</summary>
 
-### [Vehicle workflow — separate operational records from reporting](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi)
+### A document-formatting bug, fixed and accepted upstream
 
-A Node.js workflow connects Telegram photo intake, plate extraction, vehicle
-entry/exit records and Google Sheets reporting. The March 2026 migration moves
-vehicle-state decisions into a PostgreSQL function and keeps Sheets as an
-asynchronous reporting mirror. Database and mirror-failure tests sit alongside
-the implementation.
+A valid style containing quotation marks could be created but fail when retrieved. I contributed the maintainer-described correction to python-docx-ng with AI assistance and regression coverage. The maintainer reviewed and merged it.
 
-The design separates the source of truth from its reporting view, so a failed
-spreadsheet refresh is logged without blocking the database operation. A later
-concurrency case reproduces two first-entry requests creating two active records,
-then moves the transaction lock before lookup. It checks the real PostgreSQL
-behavior, migration path, rollback and independent plates.
+[Reviewed PR #131](https://github.com/toxicphreAK/python-docx-ng/pull/131) · [Original issue and diagnosis](https://github.com/toxicphreAK/python-docx-ng/issues/121)
 
-[Concurrency case](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md) ·
-[Migration and tests](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/commit/e38b44ce4fe0cc6d56f0654ae5cd4a33cd948e4d) ·
-[Database contract](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/supabase/schema.sql) ·
-[Reporting mirror](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/e38b44ce4fe0cc6d56f0654ae5cd4a33cd948e4d/src/sheets-sync.js)
+### Vehicle entry/exit records
 
-### [Codex Plugin Check — check what a released binary actually discovers](https://github.com/builtbyhuy/codex-plugin-check)
+An AI-assisted workflow connects Telegram photo intake, PostgreSQL records and a Google Sheets reporting view. Its concurrency case reproduces simultaneous requests creating duplicate active records and checks the correction with real database connections.
 
-An experimental Node.js CLI and GitHub Action that reconciles plugin installation
-and discovery responses into a structured receipt. It checks the requested
-checkout against installed identity and distinguishes discovered skills,
-untrusted hooks and declared integrations.
+[Case and reproduction](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md) · [Source](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi)
 
-The key decision: a declared capability is not evidence that it ran. The strict
-Linux/Docker probe uses a read-only checkout, denied network access and temporary
-state; diagnostic mode has a separate contract. Archived receipts cover ten pinned
-public-plugin fixtures on Codex 0.146.1 and 0.147.0. Ordinary tests and installed-package
-checks run on both Windows and Linux in CI.
+### Codex Plugin Check
 
-[Source and run instructions](https://github.com/builtbyhuy/codex-plugin-check) ·
-[Fixture inputs and receipts](https://github.com/builtbyhuy/codex-plugin-check/blob/main/docs/evidence/public-fixture-matrix.md) ·
-[Receipt contract](https://github.com/builtbyhuy/codex-plugin-check/blob/main/docs/receipt.schema.json)
+A CLI and GitHub Action record what specified released Codex versions discover from a plugin checkout. Structured results distinguish observed discovery from capabilities that are only declared.
 
-### [QuoteLens — keep a quote comparison attached to its source](https://builtbyhuy.github.io/quotelens-review-workbench/)
+[Source, checks and scope](https://github.com/builtbyhuy/codex-plugin-check)
 
-A browser workbench for entering a purchase request, importing CSV offers and
-comparing whole-pack costs, minimum orders and entered delivery fees. Source-row
-references make a selection inspectable. Changing a decision input invalidates
-its review, even when the total stays the same.
+</details>
 
-This independent engineering project focuses on exact money, revision state and
-portable records. Try a new request rather than only the included synthetic example.
+<details>
+<summary>Other interactive experiments</summary>
 
-[Working app](https://builtbyhuy.github.io/quotelens-review-workbench/) ·
-[Case study](https://builtbyhuy.github.io/quotelens-review-workbench/case-study.html) ·
-[Source and checks](https://github.com/builtbyhuy/quotelens-review-workbench)
+- **[QuoteLens](https://builtbyhuy.github.io/quotelens-review-workbench/):** compare supplier-offer costs and keep a local review linked to its inputs. [Source](https://github.com/builtbyhuy/quotelens-review-workbench)
+- **[PourLab](https://builtbyhuy.github.io/pourlab-puzzle-studio/):** create a water-sort puzzle, play it and inspect a checked solution. [Source](https://github.com/builtbyhuy/pourlab-puzzle-studio)
 
-### [PourLab — edit a puzzle, play it, inspect a checked solution](https://builtbyhuy.github.io/pourlab-puzzle-studio/)
+These are independent projects; working demos are available for inspection.
 
-A browser water-sort studio with custom levels, legal manual play, Undo and exact
-search in a worker. Solutions are checked through the move rules before replay.
-A search budget ending produces an unresolved result; it does not declare the
-puzzle impossible. The solver evaluation includes a separate BFS oracle.
-
-This independent engineering project connects rules, editor state, search,
-storage recovery and an interactive 3D board with a complete 2D fallback.
-
-[Working studio](https://builtbyhuy.github.io/pourlab-puzzle-studio/) ·
-[Guide and case study](https://builtbyhuy.github.io/pourlab-puzzle-studio/about.html) ·
-[Source and checks](https://github.com/builtbyhuy/pourlab-puzzle-studio)
-
-## Working with AI
-
-I use Codex extensively for research, implementation, debugging, tests and
-documentation. The repositories make the resulting code, technical decisions and
-reproduction steps available for review.
-
-Interested in software implementation, Python utilities and workflow automation.
-
-[CV](https://github.com/builtbyhuy/builtbyhuy/blob/main/CV.md) ·
-[LinkedIn](https://www.linkedin.com/in/builtbyhuy/) ·
-[Email](mailto:hohuyblon@gmail.com)
+</details>

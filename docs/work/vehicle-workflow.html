@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vehicle workflow — Keep entry and exit records consistent</title>
+    <meta
+      name="description"
+      content="A photo-to-record operations workflow and a reproducible PostgreSQL case: concurrent first-entry photos produced duplicate active records, then a targeted fix protected the decision."
+    />
+    <meta
+      property="og:title"
+      content="Two photos. One vehicle record. — Huy’s workflow case"
+    />
+    <meta
+      property="og:description"
+      content="A practical operations workflow, with the original database failure, a targeted fix and reproducible evidence."
+    />
+    <meta
+      property="og:image"
+      content="https://builtbyhuy.github.io/builtbyhuy/assets/portfolio-featured.png"
+    />
+    <link
+      rel="canonical"
+      href="https://builtbyhuy.github.io/builtbyhuy/work/vehicle-workflow.html"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="identity" href="../"
+        ><span class="identity-mark" aria-hidden="true">h</span>Hồ Khắc Huy</a
+      >
+      <nav aria-label="Main navigation">
+        <a href="../#work">Selected work</a
+        ><a href="../#approach">How I work</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="case-hero wrap">
+        <a class="breadcrumb" href="../">← Back to selected work</a>
+        <p class="eyebrow">02 / Vehicle entry &amp; exit workflow</p>
+        <h1>Two photos.<br />One consistent vehicle record.</h1>
+        <p class="lede">
+          A workshop workflow connects incoming vehicle photos to entry and exit
+          records. Its database case tackles a specific failure: two first-entry
+          requests arriving together could create two active records for the
+          same plate.
+        </p>
+        <div class="actions">
+          <a
+            class="button"
+            href="https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md"
+            >Inspect the case <span aria-hidden="true">↗</span></a
+          ><a
+            class="text-link"
+            href="https://github.com/builtbyhuy/xuong-vinfast-phuc-loi"
+            >Browse the workflow
+            <span class="external" aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <div class="wrap">
+        <dl class="case-meta">
+          <div>
+            <dt>Who it is for</dt>
+            <dd>
+              Workshop teams recording which vehicles have arrived and which
+              have left.
+            </dd>
+          </div>
+          <div>
+            <dt>The job</dt>
+            <dd>
+              Turn photo intake into consistent vehicle records, with a path for
+              uncertain readings.
+            </dd>
+          </div>
+          <div>
+            <dt>Why this approach</dt>
+            <dd>
+              The database decides vehicle state. Spreadsheet reporting can
+              refresh separately without blocking the record.
+            </dd>
+          </div>
+        </dl>
+        <section class="case-layout">
+          <aside class="case-aside">
+            <p>AI-assisted source implementation</p>
+            <p>Telegram · PostgreSQL · Sheets</p>
+            <p>Database fix checked locally</p>
+            <p>No public live bot demo</p>
+          </aside>
+          <div class="case-body">
+            <h2>Keep the operational decision in one place.</h2>
+            <p>
+              Telegram receives a photo. The workflow extracts a plate, routes
+              uncertain readings for review and asks PostgreSQL to decide the
+              vehicle’s entry or exit state. Google Sheets provides a reporting
+              view, with separate refresh and failure handling.
+            </p>
+            <div class="workflow" aria-label="Vehicle workflow">
+              <div>
+                <small>01 / Intake</small
+                ><strong>Vehicle photo<br />in Telegram</strong>
+              </div>
+              <span aria-hidden="true">→</span>
+              <div>
+                <small>02 / Decision</small
+                ><strong>Plate review &amp;<br />database record</strong>
+              </div>
+              <span aria-hidden="true">→</span>
+              <div>
+                <small>03 / Reporting</small
+                ><strong>Spreadsheet<br />reporting view</strong>
+              </div>
+            </div>
+            <p>
+              This is useful when photo intake and reporting need to work
+              together. A spreadsheet remains familiar for reviewing information
+              while the database owns the entry/exit decision.
+            </p>
+            <h2>The hard part was the first entry.</h2>
+            <p>
+              The earlier database function locked an existing active record
+              before changing it. When a vehicle had no record yet, there was no
+              row to lock. Two simultaneous calls could both decide to insert an
+              entry.
+            </p>
+            <p>
+              The fix coordinates calls for the same plate before checking its
+              state. A reproducible test uses two real PostgreSQL connections
+              and a controlled waiting point to demonstrate the original failure
+              and the corrected behavior.
+            </p>
+            <figure class="result-panel">
+              <p class="eyebrow">Two simultaneous first-entry requests</p>
+              <div class="results">
+                <div class="result-column">
+                  <p class="result-label">Before the fix</p>
+                  <p class="result-number">2</p>
+                  <p class="result-detail">active records for one plate</p>
+                </div>
+                <div class="result-column">
+                  <p class="result-label">After the fix</p>
+                  <p class="result-number">1</p>
+                  <p class="result-detail">
+                    active record; second request treated as a duplicate
+                  </p>
+                </div>
+              </div>
+              <figcaption class="result-caption">
+                Local PostgreSQL 16.15 · Synthetic inputs · Five controlled
+                rounds for each version. These are regression results, not
+                customer traffic or a load test.
+              </figcaption>
+            </figure>
+            <h2>A result another person can check.</h2>
+            <p>
+              The case retains the original function, the test harness and
+              structured results. It covers the fresh schema and upgrade path,
+              rollback, separate plates and the surrounding entry/exit
+              transitions.
+            </p>
+            <details>
+              <summary>Technical decisions and verification boundary</summary>
+              <div>
+                <p>
+                  A transaction-scoped advisory lock is taken for the plate
+                  before lookup. Existing row locking remains. The checked
+                  contract uses PostgreSQL READ COMMITTED; direct table writes
+                  and stronger snapshot isolation require their own concurrency
+                  contract.
+                </p>
+                <p>
+                  The patch does not repair existing duplicate records or
+                  guarantee delivery across Telegram, extraction services and
+                  spreadsheet reporting. No production deployment, measured OCR
+                  accuracy, customer usage or business savings are claimed here.
+                </p>
+                <p>
+                  This case was developed with extensive Codex assistance. Huy
+                  directs the work and reviews the delivered behavior; the
+                  repository contains the implementation and reproduction steps.
+                </p>
+                <p>
+                  <a
+                    href="https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md"
+                    >Read the full experiment and limits ↗</a
+                  >
+                </p>
+              </div>
+            </details>
+            <div class="actions">
+              <a
+                class="button"
+                href="https://github.com/builtbyhuy/xuong-vinfast-phuc-loi"
+                >Source &amp; run instructions
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </section>
+        <div class="next-case">
+          <p>Next / A reviewed open-source contribution</p>
+          <a href="python-docx.html"
+            >A small fix for valid document styles
+            <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="footer wrap">
+      <p>Hồ Khắc Huy · Built with extensive Codex support</p>
+      <div class="footer-links">
+        <a href="../">Selected work</a
+        ><a href="../guide.html" lang="vi">Hướng dẫn sử dụng</a
+        ><a href="../DESIGN-NOTES.md">Sources &amp; credits</a>
+      </div>
+    </footer>
+  </body>
+</html>

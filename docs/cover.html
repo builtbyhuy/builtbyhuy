@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huy — Portfolio cover</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+    <style>
+      @font-face {
+        font-family: Manrope;
+        src: url("assets/manrope-variable.ttf") format("truetype");
+        font-weight: 200 800;
+        font-display: swap;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f6f5ef;
+        color: #202722;
+        font-family: Manrope, Arial, sans-serif;
+      }
+      .cover {
+        width: 1200px;
+        min-height: 628px;
+        padding: 45px 55px 35px;
+        display: flex;
+        flex-direction: column;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 23px;
+        border-bottom: 1px solid #bfc7bc;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .top span:last-child {
+        font-size: 11px;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #576154;
+      }
+      .main {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 60px;
+        flex: 1;
+        padding-block: 44px 37px;
+        align-items: center;
+      }
+      .name {
+        font-size: 118px;
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+        font-weight: 600;
+        margin: 0;
+      }
+      .headline {
+        font-size: 41px;
+        line-height: 1.18;
+        letter-spacing: -0.05em;
+        margin: 27px 0 0;
+        max-width: 620px;
+        font-weight: 500;
+      }
+      .headline em {
+        font:
+          italic 46px/1.1 Georgia,
+          serif;
+        color: #274ad8;
+      }
+      .work-list {
+        padding-top: 15px;
+      }
+      .work {
+        border-top: 1px solid #bfc7bc;
+        padding-block: 17px;
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 12px;
+      }
+      .work small {
+        font-size: 10px;
+        color: #576154;
+        line-height: 1.8;
+      }
+      .work p {
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 650;
+        letter-spacing: -0.025em;
+        margin: 0;
+      }
+      .work span {
+        font-size: 11px;
+        color: #576154;
+        display: block;
+        margin-top: 4px;
+      }
+      .bottom {
+        border-top: 1px solid #bfc7bc;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 20px;
+        font-size: 12px;
+      }
+      .bottom strong {
+        font-weight: 650;
+      }
+      .bottom span {
+        color: #576154;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="cover">
+      <div class="top">
+        <span>Hồ Khắc Huy</span><span>Selected work / October 2026</span>
+      </div>
+      <div class="main">
+        <div>
+          <h1 class="name">Huy.</h1>
+          <p class="headline">Practical tools,<br /><em>built with AI.</em></p>
+        </div>
+        <div class="work-list">
+          <div class="work">
+            <small>01</small>
+            <div>
+              <p>A clearer website brief.</p>
+              <span>Web Reference Design · Use the product</span>
+            </div>
+          </div>
+          <div class="work">
+            <small>02</small>
+            <div>
+              <p>Consistent vehicle records.</p>
+              <span>Operations workflow · Inspect the case</span>
+            </div>
+          </div>
+          <div class="work">
+            <small>03</small>
+            <div>
+              <p>A reviewed Python fix.</p>
+              <span>python-docx-ng · Merged upstream</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <strong
+          >Use the product · Inspect the work
+          <span aria-hidden="true">↗</span></strong
+        ><span
+          >Goals &amp; review: Huy · Research, implementation &amp; checks:
+          Codex support</span
+        >
+      </div>
+    </main>
+  </body>
+</html>
