@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Reviewed Python contribution — Quote-safe document styles</title>
+    <title>A Word document bug, fixed and accepted — Huy’s Python contribution</title>
     <meta
       name="description"
       content="A valid document style with quotation marks should remain usable. Huy’s python-docx-ng correction was reviewed and merged by the upstream maintainer."
     />
     <meta
       property="og:title"
-      content="A document style should work with quotation marks"
+      content="A Word document bug, fixed and accepted"
     />
     <meta
       property="og:description"
-      content="A small Python correctness change, reviewed and merged upstream. Read the problem, contribution and actual evidence."
+      content="Valid formatting names could be saved but fail when read back. See Huy’s correction and regression tests, reviewed and merged by the project maintainer."
     />
     <meta
       property="og:image"
@@ -25,7 +25,7 @@
       href="https://builtbyhuy.github.io/builtbyhuy/work/python-docx.html"
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20261022-review" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -42,11 +42,11 @@
       <section class="case-hero wrap">
         <a class="breadcrumb" href="../">← Back to selected work</a>
         <p class="eyebrow">03 / Reviewed Python contribution</p>
-        <h1>A document style should work<br />with quotation marks.</h1>
+        <h1>A Word document bug,<br />fixed and accepted.</h1>
         <p class="lede">
-          Developers generating Word documents can use valid style names
-          containing quotes. A lookup should treat those names as text, so a
-          style that was created can be found again.
+          For developers generating Word files: valid formatting names could be
+          saved, then fail when the code tried to read them back. I contributed
+          a correction and regression tests that the project maintainer reviewed and merged.
         </p>
         <div class="actions">
           <a
@@ -78,10 +78,10 @@
             </dd>
           </div>
           <div>
-            <dt>Why it belongs here</dt>
+            <dt>Why it helps</dt>
             <dd>
-              An upstream maintainer reviewed and merged a bounded correction
-              with regression coverage.
+              Preserves valid names instead of asking users to rename styles
+              to work around a lookup error.
             </dd>
           </div>
         </dl>
@@ -118,10 +118,9 @@
               style API.
             </p>
             <p>
-              The original issue and diagnosis came from upstream. My
-              contribution was the correction and regression coverage. I used
-              AI to develop and check the change. The maintainer reviewed mixed quotes,
-              save/load and namespace behavior, then merged the change.
+              The upstream issue supplied the diagnosis. I used AI to implement
+              the correction and add regression cases. The maintainer checked
+              mixed quotes, save/load and namespace behavior, then merged the change.
             </p>
             <details>
               <summary>Evidence and contribution scope</summary>

@@ -19,7 +19,7 @@ Prepared 22 October 2026. This is a static portfolio for readers who need to und
 
 ## Specific adaptation decisions
 
-- **First viewport:** name/navigation above “From idea. To working tool.” A short explanation presents Huy's ability to direct AI through research, implementation, testing, iteration and usable delivery. The large product example follows immediately rather than a generic feature-card grid.
+- **First viewport:** name/navigation above “From idea. To working tool.” The introduction names web tools, connected data workflows and software fixes, with direct routes to a usable product and reviewed work. The large product example follows immediately rather than a generic feature-card grid.
 - **Hierarchy:** one usable product first, then two bounded cases. QuoteLens and PourLab remain optional experiments in a native disclosure.
 - **Typography:** Manrope for functional text, restrained Georgia italic for the editorial title. Headings use tight tracking; body text has a comfortable reading measure.
 - **Palette:** warm paper `#f6f5ef`, ink `#202722`, muted text `#5c655d`, cobalt `#274ad8`. Cobalt indicates product identity and selected emphasis; primary buttons use ink.
@@ -41,3 +41,10 @@ The portfolio was produced locally. Publication status and any LinkedIn changes 
 Reframed the introduction and case copy around directing AI to produce useful tools: define the task, guide implementation, evaluate results, refine and hand over. Replaced repeated support disclaimers with concrete contribution and outcome descriptions. Kept the selected visual direction and factual example/data boundaries.
 
 Applied ui-ux-pro-max to this copy revision, including its Heading Line Balance guidance and body-text readability checks. Inspected the revised homepage on desktop and at a 390-pixel mobile width. Checked 320, 390, 1280 and 1440-pixel layouts: no horizontal overflow, local Manrope loaded, body line-height 1.65. Recreated and inspected the 1200 × 628 Featured cover from cover.html. This was a focused content and layout review; the earlier interaction evidence still refers to the unchanged controls and product behavior.
+## First-visit content review — 22 October 2026
+
+Preserved the approved editorial direction and previously selected Brittany Chiang / Sean Halpin reference principles. Used ui-ux-pro-max's verified Portfolio Grid guidance for a work-first hierarchy and direct project actions; no gallery assets or new dependencies were added. Revised copy names concrete work, user groups and reviewable results. Project contributions are visible in the main case text; source attribution, fictional examples and local-test boundaries remain.
+
+The homepage and five supporting pages were checked at 320, 390, 1280 and 1440 pixels: 24 layout checks passed without horizontal overflow and Manrope loaded. All six pages use the same versioned stylesheet. A section label that keeps its intrinsic width prevents the longer work-summary sentence from squeezing SELECTED WORK onto two lines. Inspected the mobile first view and contact area, and regenerated the inspected 1200 x 628 Featured cover. Before/After controls still switch the real image and pressed state. All 71 local HTML references and fragments resolved.
+
+LinkedIn content was reviewed against its current public view. Headline, About, both independent-role descriptions, ten projects and five Featured cards were revised. No historical dates, organizations, permissions, Featured URLs or posts were changed. Existing QuoteLens and PourLab Featured product and case routes opened successfully. Publication verification is recorded separately in the review delivery receipt.

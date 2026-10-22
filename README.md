@@ -3,19 +3,19 @@
 **From idea to working tool.**
 Hanoi, Vietnam · English / Vietnamese
 
-I turn ideas into useful tools by directing AI through research, implementation, testing and iteration, then preparing the result for someone else to use. My background in import/export documentation shapes my interest in missing information, exceptions and traceability.
+I use AI to build web tools, connect data workflows and fix software problems. Try a website-brief builder, trace a vehicle-recording workflow, or inspect a Python fix reviewed and merged by its maintainer. My background in import/export documentation shapes my focus on missing information, exceptions and traceability.
 
 **[Explore my portfolio](https://builtbyhuy.github.io/builtbyhuy/)** · [LinkedIn](https://www.linkedin.com/in/builtbyhuy/) · [Email](mailto:hohuyblon@gmail.com)
 
 ## Web Reference Design
 
-**For people building websites with coding agents.** Turn a design reference into a working page, with a reusable skill that connects reference selection, implementation and checks of the rendered result.
+**For people planning a website with an AI coding tool.** Answer guided questions to create an editable brief, then use companion instructions and working examples to carry requirements and references through implementation and review.
 
 - **[Create a website brief](https://builtbyhuy.github.io/web-reference-design/brief/):** customize a brief, download it and use it in your own coding agent. The browser tool prepares the instructions; your agent does the implementation.
 - **[Explore the worked examples](https://builtbyhuy.github.io/web-reference-design/):** inspect desktop/mobile results and try the form interactions. The examples are fictional and create local previews.
 - **[Install the skill or inspect the source](https://github.com/builtbyhuy/web-reference-design):** use the workflow on your own project, with resource attribution and license notes included.
 
-I define the task, guide the build, evaluate the output and refine what needs changing. Working demos, recorded checks and clear instructions make the result easy to inspect and continue.
+The brief keeps the audience, page action, preserved behavior and checks together instead of scattered across chat messages. The browser composer organizes the request; your own AI coding tool implements the page.
 
 <details>
 <summary>Reviewed contribution and engineering cases</summary>

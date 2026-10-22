@@ -25,7 +25,7 @@
       href="https://builtbyhuy.github.io/builtbyhuy/work/vehicle-workflow.html"
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20261022-review" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -81,8 +81,8 @@
           <div>
             <dt>Why this approach</dt>
             <dd>
-              The database decides vehicle state. Spreadsheet reporting can
-              refresh separately without blocking the record.
+              Connect photo intake to records instead of copying each arrival
+              into a sheet. Reporting can refresh separately from the entry/exit decision.
             </dd>
           </div>
         </dl>
@@ -91,7 +91,7 @@
             <p>Photo intake → records → reporting</p>
             <p>Telegram · PostgreSQL · Sheets</p>
             <p>Database fix checked locally</p>
-            <p>No public live bot demo</p>
+            <p>Public review: source &amp; local test results</p>
           </aside>
           <div class="case-body">
             <h2>Keep the operational decision in one place.</h2>
@@ -121,6 +121,13 @@
               This is useful when photo intake and reporting need to work
               together. A spreadsheet remains familiar for reviewing information
               while the database owns the entry/exit decision.
+            </p>
+            <h2>My contribution: connect the flow and reproduce the failure.</h2>
+            <p>
+              I used AI to connect photo intake, record handling and reporting,
+              then build a test that sends two requests for the same vehicle at
+              once. That made the duplicate-record problem reproducible and let
+              me check the correction, rollback and separate-vehicle behavior.
             </p>
             <h2>The hard part was the first entry.</h2>
             <p>
@@ -175,15 +182,10 @@
                   contract.
                 </p>
                 <p>
-                  The patch does not repair existing duplicate records or
-                  guarantee delivery across Telegram, extraction services and
-                  spreadsheet reporting. No production deployment, measured OCR
-                  accuracy, customer usage or business savings are claimed here.
-                </p>
-                <p>
-                  Huy directed AI through the implementation and regression
-                  case, reviewing the delivered behavior. The repository
-                  contains the implementation and reproduction steps.
+                  These checks cover local database behavior. They do not establish
+                  extraction accuracy or end-to-end delivery across Telegram and
+                  reporting. Existing duplicate records need separate cleanup.
+                  The repository contains the implementation and reproduction steps.
                 </p>
                 <p>
                   <a
@@ -206,7 +208,7 @@
         <div class="next-case">
           <p>Next / A reviewed open-source contribution</p>
           <a href="python-docx.html"
-            >A small fix for valid document styles
+            >A Word document bug, fixed and accepted
             <span aria-hidden="true">→</span></a
           >
         </div>
