@@ -9,6 +9,7 @@ Target canonical URL: <https://builtbyhuy.github.io/builtbyhuy/>.
 - `index.html`: public selected work.
 - `work/`: three readable cases with evidence links.
 - `guide.html`: Vietnamese usage, presentation and editing guide.
+- `sources.html`: readable public design sources, licenses and provenance.
 - `DESIGN-NOTES.md`: actual sources, adaptation choices and licenses.
 - `styles.css`, `script.js`, `assets/`: local implementation and assets.
 

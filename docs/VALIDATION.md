@@ -28,3 +28,9 @@ Checked locally on 22 October 2026. Preview: `http://127.0.0.1:8874/` while the 
 This validates the local static hub, not a publication or LinkedIn update. The new Web Reference Design brief-composer URL is an integration dependency owned by the parallel product task; verify its deployed route before publishing the hub. The hub makes no live bot, customer adoption, production performance or business-impact claim. No private operational records are included.
 
 This is a practical render and interaction review, not a full accessibility conformance audit or a claim of usability testing with outside participants.
+
+## Readable sources route follow-up
+
+Added `sources.html` using the same local visual system, and updated the five public footer links to use it. The editable `DESIGN-NOTES.md` is retained unchanged. Every non-title note line was checked against the HTML text to preserve source, licensing and provenance details. All internal HTML links, anchors and CSS assets were rechecked; the result is in `evidence/sources-check.json`.
+
+The local `/sources.html` route was opened and visually inspected in Chrome at its ordinary 1920-pixel viewport. Its four content sections and eleven reference links rendered; no horizontal overflow was observed. `evidence/sources-desktop.png` records the view. This follow-up does not publish the changed files.
