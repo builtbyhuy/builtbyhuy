@@ -42,7 +42,7 @@ behavior, migration path, rollback and independent plates.
 
 [Concurrency case](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/docs/CASE-CONCURRENT-FIRST-ENTRY.md) ·
 [Migration and tests](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/commit/e38b44ce4fe0cc6d56f0654ae5cd4a33cd948e4d) ·
-[Database contract](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/e38b44ce4fe0cc6d56f0654ae5cd4a33cd948e4d/supabase/schema.sql) ·
+[Database contract](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/9f05f77547a33a82f644c2ea60a63ae9e0fb8cbb/supabase/schema.sql) ·
 [Reporting mirror](https://github.com/builtbyhuy/xuong-vinfast-phuc-loi/blob/e38b44ce4fe0cc6d56f0654ae5cd4a33cd948e4d/src/sheets-sync.js)
 
 ### [Codex Plugin Check — check what a released binary actually discovers](https://github.com/builtbyhuy/codex-plugin-check)
